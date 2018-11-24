@@ -69,7 +69,7 @@ public class SingletonDataSave {
     public void setSingletonInsurance(List<Insurance> singletonInsurance) {
         this.singletonInsurance = singletonInsurance;
     }
-    
+
     public void setSingletonOneInsurance(Insurance singletonInsurance) {
         this.singletonInsurance.add(singletonInsurance);
     }
