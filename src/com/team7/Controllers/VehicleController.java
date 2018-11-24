@@ -2,6 +2,7 @@ package com.team7.Controllers;
 
 
 
+import com.team7.DataSave.SingletonDataSave;
 import com.team7.Models.Vehicle;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.List;
  */
 public class VehicleController {
     private List<Vehicle> vehicleList;
+    private SingletonDataSave singletonClass;
+
 
     /**
      * Constructor
@@ -21,6 +24,8 @@ public class VehicleController {
      * @param vehicleList
      */
     public VehicleController(ArrayList<Vehicle> vehicleList) {
+        singletonClass = SingletonDataSave.getInstance();
+        singletonClass.setSingletonVehicle(vehicleList);
         this.vehicleList = vehicleList;
     }
 
@@ -68,6 +73,8 @@ public class VehicleController {
      * @param vehicleList
      */
     public void setVehicleList(ArrayList<Vehicle> vehicleList) {
+        singletonClass.setSingletonVehicle(vehicleList);
+
         this.vehicleList = vehicleList;
     }
 

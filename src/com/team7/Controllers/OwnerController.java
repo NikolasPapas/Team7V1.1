@@ -2,6 +2,7 @@ package com.team7.Controllers;
 
 
 
+import com.team7.DataSave.SingletonDataSave;
 import com.team7.Models.Owner;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 public class OwnerController {
 
     private List<Owner> ownerList;
+    private SingletonDataSave singletonClass;
 
     /**
      * Constructor
@@ -22,6 +24,8 @@ public class OwnerController {
      * @param owner
      */
     public OwnerController(ArrayList<Owner> owner) {
+        singletonClass = SingletonDataSave.getInstance();
+        singletonClass.setSingletonOwner(owner);
         this.ownerList = owner;
     }
 
@@ -53,6 +57,7 @@ public class OwnerController {
      * @param ownerList
      */
     public void setOwnerList(ArrayList<Owner> ownerList) {
+        singletonClass.setSingletonOwner(ownerList);
         this.ownerList = ownerList;
     }
 
@@ -62,6 +67,7 @@ public class OwnerController {
      * @param owner
      */
     public void setOwner(Owner owner) {
+        singletonClass.setSingletonOneOwner(owner);
         this.ownerList.add(owner);
     }
 }

@@ -2,7 +2,9 @@
 package com.team7.Controllers;
 
 
+import com.team7.DataSave.SingletonDataSave;
 import com.team7.Models.Insurance;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,8 +15,10 @@ import java.util.List;
  * @author NikolaosPapazian
  * @version 1.0
  */
-public class InsuranceController {
+public class InsuranceController extends SingletonDataSave {
     private List<Insurance> insuranceList;
+    private SingletonDataSave singletonClass;
+
 
     /**
      * Constructor
@@ -22,9 +26,11 @@ public class InsuranceController {
      * @param insuranceList
      */
     public InsuranceController(ArrayList<Insurance> insuranceList) {
+        singletonClass = SingletonDataSave.getInstance();
+        singletonClass.setSingletonInsurance(insuranceList);
         this.insuranceList = insuranceList;
-    }
 
+    }
 
     /**
      * @version 1.0
@@ -40,6 +46,7 @@ public class InsuranceController {
      * @param insuranceList
      */
     public void setInsuranceList(ArrayList<Insurance> insuranceList) {
+        singletonClass.setSingletonInsurance(insuranceList);
         this.insuranceList = insuranceList;
     }
 

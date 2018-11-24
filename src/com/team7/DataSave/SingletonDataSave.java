@@ -11,9 +11,9 @@ import java.util.List;
  * You mast input your class only that:
  *
  * On start of the class
- *      "private SingletonClass singletonClass;"
+ *      "private SingletonDataSave singletonClass;"
  * On Creation on your class EX: in you Constructor
- *      "singletonClass = SingletonClass.getInstance();"
+ *      "singletonClass = SingletonDataSave.getInstance();"
  * And you can get values like this.
  *      "singletonClass.getSingletonVehicle();"
  *
@@ -33,9 +33,6 @@ public class SingletonDataSave {
             ourInstance = new SingletonDataSave();
         }
         return ourInstance;
-    }
-
-    private SingletonDataSave() {
     }
 
 
