@@ -1,7 +1,7 @@
 package com.team7.Models;
 
 import java.util.Date;
-import java.util.UUID;
+
 
 /**
  * @author NikolaosPapazian
@@ -10,31 +10,31 @@ import java.util.UUID;
  * mast have ID,DateFrom,DateTo
  */
 public class Insurance implements Comparable {
-    private UUID insurID;
+    private String insurID;
     private Date insurFrom;
     private Date insurTo;
 
-    public UUID getInsurID() {
+    public String getInsuranceID() {
         return insurID;
     }
 
-    public void setInsurID(UUID insurID) {
+    public void setInsuranceID(String insurID) {
         this.insurID = insurID;
     }
 
-    public Date getInsurFrom() {
+    public Date getInsuranceFrom() {
         return insurFrom;
     }
 
-    public void setInsurFrom(Date insurFrom) {
+    public void setInsuranceFrom(Date insurFrom) {
         this.insurFrom = insurFrom;
     }
 
-    public Date getInsurTo() {
+    public Date getInsuranceTo() {
         return insurTo;
     }
 
-    public void setInsurTo(Date insurTo) {
+    public void setInsuranceTo(Date insurTo) {
         this.insurTo = insurTo;
     }
 

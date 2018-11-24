@@ -1,6 +1,6 @@
 package com.team7.Models;
 
-import java.util.UUID;
+
 
 /**
  * @author NikolaosPapazian
@@ -9,17 +9,17 @@ import java.util.UUID;
  * mast have ID,LicensePlate,Insurance
  */
 public class Vehicle implements Comparable{
-    private UUID vehID;
+    private String vehID;
     private String vehLicensePlate;
-    private UUID ownerID;
-    private UUID insurID;
+    private String ownerID;
+    private String insurID;
     private Insurance vehInsurance;
 
-    public UUID getVehID() {
+    public String getVehID() {
         return vehID;
     }
 
-    public void setVehID(UUID vehID) {
+    public void setVehID(String vehID) {
         this.vehID = vehID;
     }
 

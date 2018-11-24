@@ -6,7 +6,7 @@ import com.team7.Models.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 
 /**
  * @author NikolaosPapazian
@@ -41,7 +41,7 @@ public class VehicleController {
      * @param vehID
      * @return Vehicle | null
      */
-    public Vehicle getVehicleID(UUID vehID) {
+    public Vehicle getVehicleID(String vehID) {
         for (Vehicle veh:vehicleList) {
             if(vehID.equals(veh.getVehID())){
                 return veh;

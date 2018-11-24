@@ -6,7 +6,7 @@ import com.team7.Models.Owner;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 
 /**
  * @author NikolaosPapazian
@@ -41,7 +41,7 @@ public class OwnerController {
      * @param ownerID
      * @return Owner | null
      */
-    public Owner getOwner(UUID ownerID){
+    public Owner getOwner(String ownerID){
         for (Owner owner:ownerList) {
             if(ownerID.equals(owner.getOwnerID())){
                 return owner;
