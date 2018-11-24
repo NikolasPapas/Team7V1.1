@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
         /** Main menu*/
-    public static void main(String[] args) throws InputMismatchException {
+    public static void main(String[] args) {
         boolean finished = false;
 
         while (!finished) {
@@ -27,15 +27,12 @@ public class Main {
                         break;
                     case 2:
                         function2();
-
                         break;
                     case 3:
                         function3();
-
                         break;
                     case 4:
                         function4();
-
                         break;
                     case 5:
                         finished = closemenu();
@@ -55,7 +52,6 @@ public class Main {
 
     private static void function1()
     {
-
        Scanner keyboard = new Scanner(System.in);
        System.out.println("Give Vehicle's plate Number: ");
        String choice = keyboard.nextLine();
@@ -67,23 +63,20 @@ public class Main {
 
     private static void function2()
     {
-
+        com.team7.Services.CsvWriter.saveRecord();
         //export();
     }
     /**Function 3*/
 
     private static void function3()
     {
-
-        //export();
+        export();
     }
     /**Function 4*/
 
     private static void function4()
     {
-
-
-        //export();
+        export();
     }
     /**Function Closemenu*/
 
@@ -91,6 +84,7 @@ public class Main {
     {
         return true;
     }
+        /** IO connection*/
 
     private static void export() {
         boolean finished=false;
@@ -99,17 +93,14 @@ public class Main {
                 Scanner keyboard = new Scanner(System.in);
                 System.out.println("---- Enter export type:");
                 System.out.println("1. File");
-                System.out.println("2. Console");
+                System.out.println("2. Data Base");
                 int choice = keyboard.nextInt();
                 if (choice == 1) {
-
                     toFile();
                     finished = true;
                 } else if (choice == 2) {
-
-                    toConsole();
+                    toDb();
                     finished = true;
-
                 } else {
                     System.out.println("Invalid Input, choose again.");
                 }
@@ -119,11 +110,14 @@ public class Main {
         } while(!finished);
     }
 
+    /** IO to File*/
+
     private static void toFile()
     {
-    }
 
-    private static void toConsole()
+    }
+    /** IO to Db*/
+    private static void toDb()
     {
         try {
             com.team7.connect.SqlConnection.connect();
@@ -131,7 +125,5 @@ public class Main {
             e.printStackTrace();
         }
     }
-
-
 
 }

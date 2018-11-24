@@ -1,12 +1,24 @@
 package com.team7.connect;
+import com.team7.Controllers.InsuranceController;
+import com.team7.Models.Insurance;
+import com.team7.Models.Owner;
+import com.team7.Models.Vehicle;
 
 import java.sql.*;
 
+/**
+ *
+ */
 public class SqlConnection {
 
-
+    /**
+     *
+     * @throws SQLException
+     */
     public static void connect()throws SQLException {
+
         /**Declare querries*/
+
         String query1 = "select * from owner;";
         String query2 = "select * from vehicle;";
         String query3 = "select * from insurance;";
@@ -28,6 +40,7 @@ public class SqlConnection {
         Statement st = null;
         try {
             st = con.createStatement();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -37,7 +50,13 @@ public class SqlConnection {
         ResultSet rs2 = null;
         ResultSet rs3 = null;
 
-        /**Owner resultSet*/
+        /**Owner resultSet
+         *
+         * 1 Owner Id
+         * 2 Owner Name
+         *
+         *
+         * */
         try {
             rs1 = st.executeQuery(query1);
         } catch (SQLException e) {
@@ -45,6 +64,11 @@ public class SqlConnection {
         }
         while (rs1.next()) {
             try {
+                //Owner ownr = new Owner();
+                //ownr.setOwnerID(rs1.getString(1));
+                //ownr.setOwnerName(rs1.getString(2));
+                //TODO: SingletonDataSave.setOneOwner(Owner)
+
                 System.out.println(rs1.getString(1)+","+rs1.getString(2));
             } catch (SQLException e) {
                 e.printStackTrace(); }
@@ -52,8 +76,16 @@ public class SqlConnection {
         rs1.close();
 
 
+        /**Vehicle resultSet
 
-        /**Vehicle resultSet*/
+         *
+         * columns
+         * 1:ID
+         * 2:OwnerID
+         * 3:InsurID
+         * 4:VehiclePlate
+         *
+         */
 
         try {
             rs2 = st.executeQuery(query2);
@@ -62,6 +94,12 @@ public class SqlConnection {
         }
         while (rs2.next()) {
             try {
+                Vehicle vehi = new Vehicle();
+
+                //vehi.setVehLicensePlate(rs2.getString(4));
+                //vehi.setVehID(rs2.getString(1));
+
+                //TODO: SingletonDataSave.setOneVehicle(Vehicle)
                 System.out.println(rs2.getString(1)+","+rs2.getString(2)+","+rs2.getString(3)+","+rs2.getString(4));
 
             } catch (SQLException e) {
@@ -70,7 +108,13 @@ public class SqlConnection {
         }
         rs2.close();
 
-        /**Insurance resultSet*/
+        /**Insurance resultSet
+         *
+         * 1. Insu Id
+         * 2. Insu day From
+         * 3. Insu day To
+         *
+         * */
 
         try {
             rs3 = st.executeQuery(query3);
@@ -79,6 +123,13 @@ public class SqlConnection {
         }
         while (rs3.next()) {
             try {
+                //Insurance insu = new Insurance();
+                //insu.setInsurID(rs3.getString(1));
+               //insu.setInsurFrom(rs3.getDate(2));
+                //insu.setInsurTo(rs2.getDate(3));
+                //TODO: SingletonDataSave.setOneInsurance(Insurance)
+
+
                 System.out.println(rs3.getString(1)+","+rs3.getDate(2)+","+rs3.getDate(3));
 
             } catch (SQLException e) {
@@ -87,12 +138,13 @@ public class SqlConnection {
         }
         rs3.close();
 
-        /**close connection with db*/
+        /**
+         * close connection with db
+         *
+         * */
 
         st.close();
         con.close();
     }
 
 }
-
-
