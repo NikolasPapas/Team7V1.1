@@ -12,7 +12,6 @@ import java.util.List;
 /**
  * @author NikolaosPapazian
  * @version 1.0
- *
  */
 public class InsuranceController {
     private List<Insurance> insuranceList;
@@ -20,7 +19,6 @@ public class InsuranceController {
     /**
      * Constructor
      * @version 1.0
-     * @since 22/11/18
      * @param insuranceList
      */
     public InsuranceController(ArrayList<Insurance> insuranceList) {
@@ -30,7 +28,6 @@ public class InsuranceController {
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @return ArrayList<Insurance>
      */
     public List<Insurance> getInsuranceList() {
@@ -40,7 +37,6 @@ public class InsuranceController {
     /**
      * set New ArrayList of Insurance
      * @version 1.0
-     * @since 22/11/18
      * @param insuranceList
      */
     public void setInsuranceList(ArrayList<Insurance> insuranceList) {
@@ -49,7 +45,6 @@ public class InsuranceController {
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @param insID
      * @return Insurance | null
      */
@@ -64,7 +59,6 @@ public class InsuranceController {
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @param dateEnd
      * @return ArrayList<Insurance>
      */
@@ -81,7 +75,6 @@ public class InsuranceController {
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @param startDate
      * @return ArrayList<Insurance>
      */

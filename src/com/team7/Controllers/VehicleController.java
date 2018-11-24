@@ -18,7 +18,6 @@ public class VehicleController {
     /**
      * Constructor
      * @version 1.0
-     * @since 22/11/18
      * @param vehicleList
      */
     public VehicleController(ArrayList<Vehicle> vehicleList) {
@@ -27,7 +26,6 @@ public class VehicleController {
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @return ArrayList<Vehicle>
      */
     public List<Vehicle> getVehicleList() {
@@ -37,7 +35,6 @@ public class VehicleController {
     /**
      * get specific vehicle with ID
      * @version 1.0
-     * @since 22/11/18
      * @param vehID
      * @return Vehicle | null
      */
@@ -53,7 +50,6 @@ public class VehicleController {
     /**
      * get specific vehicle with LicensePlate
      * @version 1.0
-     * @since 22/11/18
      * @param plate
      * @return Vehicle | null
      */
@@ -69,7 +65,6 @@ public class VehicleController {
     /**
      * set a new List of Vehicles
      * @version 1.0
-     * @since 22/11/18
      * @param vehicleList
      */
     public void setVehicleList(ArrayList<Vehicle> vehicleList) {

@@ -19,7 +19,6 @@ public class OwnerController {
     /**
      * Constructor
      * @version 1.0
-     * @since 22/11/18
      * @param owner
      */
     public OwnerController(ArrayList<Owner> owner) {
@@ -28,7 +27,6 @@ public class OwnerController {
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @return ArrayList<Owner>
      */
     public List<Owner> getOwnerList() {
@@ -37,7 +35,6 @@ public class OwnerController {
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @param ownerID
      * @return Owner | null
      */
@@ -53,7 +50,6 @@ public class OwnerController {
     /**
      * set ArrayList of Owners
      * @version 1.0
-     * @since 22/11/18
      * @param ownerList
      */
     public void setOwnerList(ArrayList<Owner> ownerList) {
@@ -63,7 +59,6 @@ public class OwnerController {
     /**
      * add new value to ownerList
      * @version 1.0
-     * @since 22/11/18
      * @param owner
      */
     public void setOwner(Owner owner) {
