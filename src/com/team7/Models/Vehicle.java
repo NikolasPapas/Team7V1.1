@@ -8,7 +8,7 @@ import java.util.UUID;
  * Vehicle
  * mast have ID,LicensePlate,Insurance
  */
-public class Vehicle{
+public class Vehicle implements Comparable{
     private UUID vehID;
     private String vehLicensePlate;
     private UUID ownerID;
@@ -37,5 +37,11 @@ public class Vehicle{
 
     public void setVehInsurance(Insurance vehInsurance) {
         this.vehInsurance = vehInsurance;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        //TODO: make the compare System
+        return 0;
     }
 }

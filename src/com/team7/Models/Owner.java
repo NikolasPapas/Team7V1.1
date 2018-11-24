@@ -9,7 +9,7 @@ import java.util.UUID;
  * Owner
  * mast have ID,Name
  */
-public class Owner {
+public class Owner implements Comparable {
     private UUID ownerID;
     private String ownerName;
 
@@ -28,5 +28,11 @@ public class Owner {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        //TODO: make the compare System
+        return 0;
     }
 }

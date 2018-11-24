@@ -9,7 +9,7 @@ import java.util.UUID;
  * Insurance
  * mast have ID,DateFrom,DateTo
  */
-public class Insurance {
+public class Insurance implements Comparable {
     private UUID insurID;
     private Date insurFrom;
     private Date insurTo;
@@ -36,5 +36,11 @@ public class Insurance {
 
     public void setInsurTo(Date insurTo) {
         this.insurTo = insurTo;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        //TODO: make the compare System
+        return 0;
     }
 }
