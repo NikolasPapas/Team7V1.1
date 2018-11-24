@@ -6,85 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static void function1()
-    {
-
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Give Vehicle's plate Number: ");
-        String choice = keyboard.nextLine();
-
-        //where INSU_ID=\""+choice+"\"
-        String query= ("select * from insurance ");
-        int flag=1;
-        export(query,flag);
-    }
-
-    private static void function2()
-    {
-
-        int flag=2;
-        //export(query,flag);
-    }
-
-    private static void function3()
-    {
-
-        int flag=3;
-        //export(query,flag);
-    }
-
-    private static void function4()
-    {
-
-        int flag=4;
-        //export(query,flag);
-    }
-
-    private static boolean closemenu()
-    {
-        return true;
-    }
-
-    private static void export(String query, int flag) {
-        boolean finished=false;
-        do {
-            try {
-                Scanner keyboard = new Scanner(System.in);
-                System.out.println("---- Enter export type:");
-                System.out.println("1. File");
-                System.out.println("2. Console");
-                int choice = keyboard.nextInt();
-                if (choice == 1) {
-
-                    toFile();
-                    finished = true;
-                } else if (choice == 2) {
-
-                    toConsole(query,flag);
-                    finished = true;
-
-                } else {
-                    System.out.println("Invalid Input, choose again.");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid Input, please select one of the given options.");
-            }
-        } while(!finished);
-    }
-
-    private static void toFile()
-    {
-    }
-
-    private static void toConsole(String query,int flag)
-    {
-        try {
-            com.team7.connect.SqlConnection.connect(query,flag);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
+        /** Main menu*/
     public static void main(String[] args) throws InputMismatchException {
         boolean finished = false;
 
@@ -128,5 +50,88 @@ public class Main {
         }
 
     }
+
+    /**Function 1*/
+
+    private static void function1()
+    {
+
+       Scanner keyboard = new Scanner(System.in);
+       System.out.println("Give Vehicle's plate Number: ");
+       String choice = keyboard.nextLine();
+       System.out.println(choice);
+       export();
+    }
+
+    /**Function 2*/
+
+    private static void function2()
+    {
+
+        //export();
+    }
+    /**Function 3*/
+
+    private static void function3()
+    {
+
+        //export();
+    }
+    /**Function 4*/
+
+    private static void function4()
+    {
+
+
+        //export();
+    }
+    /**Function Closemenu*/
+
+    private static boolean closemenu()
+    {
+        return true;
+    }
+
+    private static void export() {
+        boolean finished=false;
+        do {
+            try {
+                Scanner keyboard = new Scanner(System.in);
+                System.out.println("---- Enter export type:");
+                System.out.println("1. File");
+                System.out.println("2. Console");
+                int choice = keyboard.nextInt();
+                if (choice == 1) {
+
+                    toFile();
+                    finished = true;
+                } else if (choice == 2) {
+
+                    toConsole();
+                    finished = true;
+
+                } else {
+                    System.out.println("Invalid Input, choose again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid Input, please select one of the given options.");
+            }
+        } while(!finished);
+    }
+
+    private static void toFile()
+    {
+    }
+
+    private static void toConsole()
+    {
+        try {
+            com.team7.connect.SqlConnection.connect();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }
