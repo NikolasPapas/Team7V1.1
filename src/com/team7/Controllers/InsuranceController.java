@@ -2,60 +2,62 @@
 package com.team7.Controllers;
 
 
+import com.team7.DataSave.SingletonDataSave;
 import com.team7.Models.Insurance;
+
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
+import java.util.List;
 
 
 /**
  * @author NikolaosPapazian
  * @version 1.0
- *
  */
-public class InsuranceController {
-    private ArrayList<Insurance> insuranceList;
+public class InsuranceController extends SingletonDataSave {
+    private List<Insurance> insuranceList;
+    private SingletonDataSave singletonClass;
+
 
     /**
      * Constructor
      * @version 1.0
-     * @since 22/11/18
      * @param insuranceList
      */
     public InsuranceController(ArrayList<Insurance> insuranceList) {
+        singletonClass = SingletonDataSave.getInstance();
+        singletonClass.setSingletonInsurance(insuranceList);
         this.insuranceList = insuranceList;
-    }
 
+    }
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @return ArrayList<Insurance>
      */
-    public ArrayList<Insurance> getInsuranceList() {
+    public List<Insurance> getInsuranceList() {
         return insuranceList;
     }
 
     /**
      * set New ArrayList of Insurance
      * @version 1.0
-     * @since 22/11/18
      * @param insuranceList
      */
     public void setInsuranceList(ArrayList<Insurance> insuranceList) {
+        singletonClass.setSingletonInsurance(insuranceList);
         this.insuranceList = insuranceList;
     }
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @param insID
      * @return Insurance | null
      */
-    public Insurance getInsuranceID(UUID insID){
+    public Insurance getInsuranceID(String insID){
         for (Insurance ins:insuranceList) {
-            if(insID.equals(ins.getInsurID())){
+            if(insID.equals(ins.getInsuranceID())){
                 return ins;
             }
         }
@@ -64,15 +66,14 @@ public class InsuranceController {
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @param dateEnd
      * @return ArrayList<Insurance>
      */
-    public ArrayList<Insurance> getInsuranceDateEnd(Date dateEnd){
-        ArrayList<Insurance> insuranceEndList=new ArrayList<Insurance>();
+    public List<Insurance> getInsuranceDateEnd(Date dateEnd){
+        List<Insurance> insuranceEndList=new ArrayList<Insurance>();
 
         for (Insurance ins:insuranceList) {
-            if(ins.getInsurTo().before(dateEnd)){
+            if(ins.getInsuranceTo().before(dateEnd)){
                 insuranceEndList.add(ins);
             }
         }
@@ -81,15 +82,14 @@ public class InsuranceController {
 
     /**
      * @version 1.0
-     * @since 22/11/18
      * @param startDate
      * @return ArrayList<Insurance>
      */
-    public ArrayList<Insurance> getInsuranceDateStart(Date startDate){
-        ArrayList<Insurance> insuranceEndList=new ArrayList<Insurance>();
+    public List<Insurance> getInsuranceDateStart(Date startDate){
+        List<Insurance> insuranceEndList=new ArrayList<>();
 
         for (Insurance ins:insuranceList) {
-            if(ins.getInsurFrom().after(startDate)){
+            if(ins.getInsuranceFrom().after(startDate)){
                 insuranceEndList.add(ins);
             }
         }

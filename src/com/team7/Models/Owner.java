@@ -1,6 +1,6 @@
 package com.team7.Models;
 
-import java.util.UUID;
+
 
 
 /**
@@ -9,16 +9,16 @@ import java.util.UUID;
  * Owner
  * mast have ID,Name
  */
-public class Owner {
-    private UUID ownerID;
+public class Owner implements Comparable {
+    private String ownerID;
     private String ownerName;
 
 
-    public UUID getOwnerID() {
+    public String getOwnerID() {
         return ownerID;
     }
 
-    public void setOwnerID(UUID ownerID) {
+    public void setOwnerID(String ownerID) {
         this.ownerID = ownerID;
     }
 
@@ -28,5 +28,11 @@ public class Owner {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        //TODO: make the compare System
+        return 0;
     }
 }
