@@ -5,6 +5,7 @@ package com.team7.Controllers;
 import com.team7.Models.Owner;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -13,19 +14,7 @@ import java.util.UUID;
  */
 public class OwnerController {
 
-    /*
-    to get the data from database
-    C# Code
-    private DBEntities db = new DBEntities();
-
-    // GET: Employees
-    public ActionResult Index()
-    {
-        var employees = db.Table;
-        return View(employees.ToList());
-    }
-    */
-    private ArrayList<Owner> ownerList;
+    private List<Owner> ownerList;
 
     /**
      * Constructor
@@ -42,7 +31,7 @@ public class OwnerController {
      * @since 22/11/18
      * @return ArrayList<Owner>
      */
-    public ArrayList<Owner> getOwnerList() {
+    public List<Owner> getOwnerList() {
         return ownerList;
     }
 
@@ -54,8 +43,8 @@ public class OwnerController {
      */
     public Owner getOwner(UUID ownerID){
         for (Owner owner:ownerList) {
-                    if(ownerID.equals(owner.getOwnerID())){
-                        return owner;
+            if(ownerID.equals(owner.getOwnerID())){
+                return owner;
             }
         }
         return null;

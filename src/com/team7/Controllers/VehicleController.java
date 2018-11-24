@@ -5,6 +5,7 @@ package com.team7.Controllers;
 import com.team7.Models.Vehicle;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -12,7 +13,7 @@ import java.util.UUID;
  * @version 1.0
  */
 public class VehicleController {
-    private ArrayList<Vehicle> vehicleList;
+    private List<Vehicle> vehicleList;
 
     /**
      * Constructor
@@ -29,7 +30,7 @@ public class VehicleController {
      * @since 22/11/18
      * @return ArrayList<Vehicle>
      */
-    public ArrayList<Vehicle> getVehicleList() {
+    public List<Vehicle> getVehicleList() {
         return vehicleList;
     }
 

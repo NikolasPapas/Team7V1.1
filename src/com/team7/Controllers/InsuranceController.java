@@ -6,6 +6,7 @@ import com.team7.Models.Insurance;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -15,7 +16,7 @@ import java.util.UUID;
  *
  */
 public class InsuranceController {
-    private ArrayList<Insurance> insuranceList;
+    private List<Insurance> insuranceList;
 
     /**
      * Constructor
@@ -33,7 +34,7 @@ public class InsuranceController {
      * @since 22/11/18
      * @return ArrayList<Insurance>
      */
-    public ArrayList<Insurance> getInsuranceList() {
+    public List<Insurance> getInsuranceList() {
         return insuranceList;
     }
 
@@ -68,8 +69,8 @@ public class InsuranceController {
      * @param dateEnd
      * @return ArrayList<Insurance>
      */
-    public ArrayList<Insurance> getInsuranceDateEnd(Date dateEnd){
-        ArrayList<Insurance> insuranceEndList=new ArrayList<Insurance>();
+    public List<Insurance> getInsuranceDateEnd(Date dateEnd){
+        List<Insurance> insuranceEndList=new ArrayList<Insurance>();
 
         for (Insurance ins:insuranceList) {
             if(ins.getInsurTo().before(dateEnd)){
@@ -85,8 +86,8 @@ public class InsuranceController {
      * @param startDate
      * @return ArrayList<Insurance>
      */
-    public ArrayList<Insurance> getInsuranceDateStart(Date startDate){
-        ArrayList<Insurance> insuranceEndList=new ArrayList<Insurance>();
+    public List<Insurance> getInsuranceDateStart(Date startDate){
+        List<Insurance> insuranceEndList=new ArrayList<>();
 
         for (Insurance ins:insuranceList) {
             if(ins.getInsurFrom().after(startDate)){
