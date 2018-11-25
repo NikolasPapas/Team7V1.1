@@ -8,7 +8,7 @@ package com.team7.Models;
  * Vehicle
  * mast have ID,LicensePlate,Insurance
  */
-public class Vehicle implements Comparable{
+public class Vehicle implements Comparable<Vehicle>{
     private String vehID;
     private String vehLicensePlate;
     private String ownerID;
@@ -40,8 +40,20 @@ public class Vehicle implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
-        //TODO: make the compare System
+    public String toString(){
+        return "["+"vehicle_ID:"+vehID+"]";
+    }
+
+    @Override
+    public int compareTo(Vehicle o) {
+        if(toString().equals(o.toString())){
+            return 1;
+        }
+
+        //TODO: the correct comparing method
+        // return -X if is down from this
+        // return 0 if is the same
+        //return +x if is up from this
         return 0;
     }
 }
