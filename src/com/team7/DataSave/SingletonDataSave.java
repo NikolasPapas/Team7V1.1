@@ -25,9 +25,9 @@ public class SingletonDataSave {
 
     //Hear we define tha data we stored
     //TODO: maybe need the <>
-    private List/*<Vehicle>*/ singletonVehicle = null;
-    private List/*<Owner>*/ singletonOwner = null;
-    private List/*<Insurance>*/ singletonInsurance = null;
+    private List<Vehicle> singletonVehicle = null;
+    private List<Owner> singletonOwner = null;
+    private List<Insurance> singletonInsurance = null;
 
     public static SingletonDataSave getInstance() {
         if(ourInstance == null){
