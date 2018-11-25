@@ -40,8 +40,15 @@ public class Vehicle implements Comparable{
     }
 
     @Override
+    public String toString(){
+        return "["+"vehicle_ID:"+vehID+"]";
+    }
+
+    @Override
     public int compareTo(Object o) {
-        //TODO: make the compare System
+        if(toString().equals(o.toString())){
+            return 1;
+        }
         return 0;
     }
 }
