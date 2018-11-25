@@ -70,14 +70,13 @@ public class FindUninsured {
      * @param x
      * @return ArrayList
      */
-    public ArrayList isUninsureInDate (Insurance Insurance ,int x){
-        //TODO: make the x days to Experied Isurance Vehicles
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, x);
+    public ArrayList isUninsuredInDate (Insurance Insurance ,int x){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, x);
         ArrayList AllUninsured = new ArrayList<InsuranceController>();
 
         for (Insurance ins:singletonClass.getSingletonInsurance()) {
-            if( ins.getInsuranceTo().before(calendar.getTime())){
+            if( ins.getInsuranceTo().before(cal.getTime())){
                 AllUninsured.add(ins);
             }
         }
