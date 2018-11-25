@@ -64,9 +64,9 @@ public class SqlConnection {
         }
         while (rs1.next()) {
             try {
-                //Owner ownr = new Owner();
-                //ownr.setOwnerID(rs1.getString(1));
-                //ownr.setOwnerName(rs1.getString(2));
+                Owner ownr = new Owner();
+                ownr.setOwnerID(rs1.getString(1));
+                ownr.setOwnerName(rs1.getString(2));
                 //TODO: SingletonDataSave.setOneOwner(Owner)
 
                 System.out.println(rs1.getString(1)+","+rs1.getString(2));
@@ -96,8 +96,8 @@ public class SqlConnection {
             try {
                 Vehicle vehi = new Vehicle();
 
-                //vehi.setVehLicensePlate(rs2.getString(4));
-                //vehi.setVehID(rs2.getString(1));
+                vehi.setVehLicensePlate(rs2.getString(4));
+                vehi.setVehID(rs2.getString(1));
 
                 //TODO: SingletonDataSave.setOneVehicle(Vehicle)
                 System.out.println(rs2.getString(1)+","+rs2.getString(2)+","+rs2.getString(3)+","+rs2.getString(4));
@@ -123,10 +123,10 @@ public class SqlConnection {
         }
         while (rs3.next()) {
             try {
-                //Insurance insu = new Insurance();
-                //insu.setInsurID(rs3.getString(1));
-               //insu.setInsurFrom(rs3.getDate(2));
-                //insu.setInsurTo(rs2.getDate(3));
+                Insurance insu = new Insurance();
+                insu.setInsuranceID(rs3.getString(1));
+               insu.setInsuranceFrom(rs3.getDate(2));
+               insu.setInsuranceTo(rs2.getDate(3));
                 //TODO: SingletonDataSave.setOneInsurance(Insurance)
 
 

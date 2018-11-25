@@ -27,7 +27,7 @@ public class FindUninsured {
      */
     private boolean isUnsuredNow (Insurance Insurance){
         Calendar calendar = Calendar.getInstance();
-        if( Insurance.getInsurTo().before(calendar.getTime()) ){
+        if( Insurance.getInsuranceTo().before(calendar.getTime()) ){
             return true;
         }
         return false;
@@ -42,7 +42,7 @@ public class FindUninsured {
     private boolean isUnsuredInDate (Insurance Insurance ,int x){
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, x);
-        if( Insurance.getInsurTo().before(calendar.getTime())){
+        if( Insurance.getInsuranceTo().before(calendar.getTime())){
             return true;
     }
         return false;
