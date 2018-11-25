@@ -6,6 +6,7 @@ import com.team7.DataSave.SingletonDataSave;
 import com.team7.Models.*;
 
 import java.security.PublicKey;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -56,7 +57,7 @@ public class FindUninsured {
      */
     public boolean isUninsuredNow (Insurance insurance){
         Calendar calendar = Calendar.getInstance();
-        if( insurance.getInsuranceTo().before(calendar.getTime()) ){
+        if( insurance.getInsuranceTo().before(calendar.getTime())){
             return true;
         }
         return false;
@@ -65,21 +66,35 @@ public class FindUninsured {
     /**
      * isUninsuredInDate
      * that method get int for Days and return a ArrayList
-     * with the Insurance hou ends to x days     *
-     * @param Insurance
+     * with the Insurance hou ends to x days
      * @param x
      * @return ArrayList
      */
-    public ArrayList isUninsuredInDate (Insurance Insurance ,int x){
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, x);
+    public ArrayList isUninsuredInDate (int x){
         ArrayList AllUninsured = new ArrayList<InsuranceController>();
 
         for (Insurance ins:singletonClass.getSingletonInsurance()) {
-            if( ins.getInsuranceTo().before(cal.getTime())){
+            if( isOneUninsuredInDate(ins,x)){
                 AllUninsured.add(ins);
             }
         }
         return AllUninsured;
+    }
+
+    /**
+     * isUninsuredInDate
+     * that method get int for Days and return a ArrayList
+     * with the Insurance hou ends to x days
+     * @param x
+     * @return ArrayList
+     */
+    public Boolean isOneUninsuredInDate (Insurance insurance, int x){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, x);
+        ArrayList AllUninsured = new ArrayList<InsuranceController>();
+        if( insurance.getInsuranceTo().before(cal.getTime())){
+            return true;
+        }
+        return false;
     }
 }
