@@ -70,12 +70,14 @@ public class Main {
 
     private static void function3()
     {
-        export();
+        com.team7.Services.CsvReader.loadRecord();
+        //export();
     }
     /**Function 4*/
 
     private static void function4()
     {
+
         export();
     }
     /**Function Closemenu*/
