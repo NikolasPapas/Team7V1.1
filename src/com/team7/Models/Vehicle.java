@@ -39,6 +39,22 @@ public class Vehicle implements Comparable<Vehicle>{
         this.vehInsurance = vehInsurance;
     }
 
+    public String getOwnerID() {
+        return ownerID;
+    }
+
+    public void setOwnerID(String ownerID) {
+        this.ownerID = ownerID;
+    }
+
+    public String getInsurID() {
+        return insurID;
+    }
+
+    public void setInsurID(String insurID) {
+        this.insurID = insurID;
+    }
+
     @Override
     public String toString(){
         return "["+"vehicle_ID:"+vehID+"]";
