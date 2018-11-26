@@ -1,5 +1,7 @@
 package com.team7;
 
+import com.team7.connect.SqlConnection;
+
 import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -56,6 +58,7 @@ public class Main {
        System.out.println("Give Vehicle's plate Number: ");
        String choice = keyboard.nextLine();
        System.out.println(choice);
+       verifyPlate(choice);
        export();
     }
 
@@ -122,9 +125,20 @@ public class Main {
     private static void toDb()
     {
         try {
-            com.team7.connect.SqlConnection.connect();
+            SqlConnection sql=new SqlConnection();
+            sql.connect();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+    private static boolean verifyPlate(String plate) {
+        if (plate.matches("[A-Z]{3}[-]{1}[0-9]{4}")) {
+            System.out.println("This is a Valid license plate!");
+            return true;
+
+        } else {
+            System.out.println("Invalid input!");
+            return false;
         }
     }
 

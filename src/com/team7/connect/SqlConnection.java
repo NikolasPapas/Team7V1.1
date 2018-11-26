@@ -1,21 +1,22 @@
 package com.team7.connect;
 import com.team7.Controllers.InsuranceController;
+import com.team7.Controllers.OwnerController;
+import com.team7.Controllers.VehicleController;
 import com.team7.Models.Insurance;
 import com.team7.Models.Owner;
 import com.team7.Models.Vehicle;
-
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
  */
 public class SqlConnection {
-
-    /**
+        /**
      *
      * @throws SQLException
      */
-    public static void connect()throws SQLException {
+    public void connect()throws SQLException {
 
         /**Declare querries*/
 
@@ -45,7 +46,9 @@ public class SqlConnection {
             e.printStackTrace();
         }
         /**Dhmiourgia resultset*/
-
+        ArrayList<Owner> ownerList = new ArrayList<>();
+        ArrayList<Vehicle> vehiList = new ArrayList<>();
+        ArrayList<Insurance> insuList = new ArrayList<>();
         ResultSet rs1 = null;
         ResultSet rs2 = null;
         ResultSet rs3 = null;
@@ -57,6 +60,7 @@ public class SqlConnection {
          *
          *
          * */
+
         try {
             rs1 = st.executeQuery(query1);
         } catch (SQLException e) {
@@ -65,13 +69,19 @@ public class SqlConnection {
         while (rs1.next()) {
             try {
                 Owner ownr = new Owner();
-                ownr.setOwnerID(rs1.getString(1));
                 ownr.setOwnerName(rs1.getString(2));
-                //TODO: SingletonDataSave.setOneOwner(Owner)
-
-                System.out.println(rs1.getString(1)+","+rs1.getString(2));
+                ownr.setOwnerID(rs1.getString(1));
+                ownerList.add(ownr);
+                //System.out.println(ownr.getOwnerName()+ownr.getOwnerID());
+                //System.out.println(rs1.getString(1)+","+rs1.getString(2));
             } catch (SQLException e) {
                 e.printStackTrace(); }
+        }
+        // TODO: SingletonDataSave.setSingletonOwner(ownerList);
+        OwnerController ownContr = new OwnerController(ownerList);
+        ownContr.setOwnerList(ownerList);
+        for (int i=0; i<ownerList.size();i++){
+            System.out.println( ownerList.get(i));
         }
         rs1.close();
 
@@ -95,16 +105,24 @@ public class SqlConnection {
         while (rs2.next()) {
             try {
                 Vehicle vehi = new Vehicle();
-
                 vehi.setVehLicensePlate(rs2.getString(4));
+                vehi.setInsurID(rs2.getString(3));
+                vehi.setOwnerID(rs2.getString(2));
                 vehi.setVehID(rs2.getString(1));
 
-                //TODO: SingletonDataSave.setOneVehicle(Vehicle)
-                System.out.println(rs2.getString(1)+","+rs2.getString(2)+","+rs2.getString(3)+","+rs2.getString(4));
+                vehiList.add(vehi);
+                //System.out.println(rs2.getString(1)+","+rs2.getString(2)+","+rs2.getString(3)+","+rs2.getString(4));
 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+        //TODO: SingletonDataSave.setOneVehicle(Vehicle)
+        //SingletonDataSave.setSingletonVehicle(vehiList);
+        VehicleController vehiContr = new VehicleController(vehiList);
+        vehiContr.setVehicleList(vehiList);
+        for (int i=0; i<ownerList.size();i++){
+            System.out.println( vehiList.get(i));
         }
         rs2.close();
 
@@ -125,16 +143,21 @@ public class SqlConnection {
             try {
                 Insurance insu = new Insurance();
                 insu.setInsuranceID(rs3.getString(1));
-               insu.setInsuranceFrom(rs3.getDate(2));
-               insu.setInsuranceTo(rs2.getDate(3));
-                //TODO: SingletonDataSave.setOneInsurance(Insurance)
-
-
+                insu.setInsuranceFrom(rs3.getDate(2));
+                insu.setInsuranceTo(rs3.getDate(3));
+                insuList.add(insu);
                 System.out.println(rs3.getString(1)+","+rs3.getDate(2)+","+rs3.getDate(3));
 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+        //TODO: SingletonDataSave.setOneInsurance(Insurance)
+        //SingletonDataSave.setSingletonInsurance(insuList);
+        InsuranceController insuContr = new InsuranceController(insuList);
+        insuContr.setInsuranceList(insuList);
+        for (int i=0; i<ownerList.size();i++){
+            System.out.println( insuList.get(i));
         }
         rs3.close();
 

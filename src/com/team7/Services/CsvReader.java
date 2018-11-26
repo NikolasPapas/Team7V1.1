@@ -1,4 +1,6 @@
 package com.team7.Services;
+import com.team7.connect.SqlConnection;
+
 import java.io.*;
 
 
@@ -18,6 +20,8 @@ public class CsvReader {
 
                 // use comma as separator
                 String[] plateInfo = line.split(cvsSplitBy);
+
+                // ownerList.add(plateInfo[1]);
                 System.out.println(" First Name: " + plateInfo[0]+  " Last Name: " + plateInfo[1] + " Ai gamisou: " + plateInfo[2]);
                     }
 
