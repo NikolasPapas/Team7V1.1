@@ -1,15 +1,9 @@
 package com.team7.Services;
-import com.team7.Controllers.InsuranceController;
-import com.team7.Controllers.OwnerController;
-import com.team7.Controllers.VehicleController;
-import com.team7.Models.Insurance;
-import com.team7.Models.Owner;
-import com.team7.Models.Vehicle;
+import com.team7.Controllers.*;
+import com.team7.Models.*;
 import java.text.*;
 import java.util.Date;
-
 import java.io.*;
-import java.text.DateFormat;
 import java.util.ArrayList;
 
 
@@ -21,6 +15,7 @@ public class CsvReader {
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
+        /**Αρχικοποίηση Λιστών*/
         ArrayList<Owner> ownerList = new ArrayList<>();
         ArrayList<Vehicle> vehiList = new ArrayList<>();
         ArrayList<Insurance> insuList = new ArrayList<>();
@@ -64,10 +59,11 @@ public class CsvReader {
                 insuList.add(insu);
 
             }
-            /**Send Lists to the controllers*/
+            /**Creating Lists in the controllers*/
             OwnerController ownContr = new OwnerController(ownerList);
             InsuranceController insuContr = new InsuranceController(insuList);
             VehicleController vehiContr = new VehicleController(vehiList);
+
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
