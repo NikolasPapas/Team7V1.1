@@ -15,7 +15,7 @@ import java.util.List;
  * @author NikolaosPapazian
  * @version 1.0
  */
-public class InsuranceController extends SingletonDataSave {
+public class InsuranceController {
     private List<Insurance> insuranceList;
     private SingletonDataSave singletonClass;
 

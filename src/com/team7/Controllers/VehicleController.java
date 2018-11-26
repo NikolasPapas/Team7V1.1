@@ -13,7 +13,7 @@ import java.util.List;
  * @author NikolaosPapazian
  * @version 1.0
  */
-public class VehicleController  extends SingletonDataSave {
+public class VehicleController {
     private List<Vehicle> vehicleList;
     private SingletonDataSave singletonClass;
 
