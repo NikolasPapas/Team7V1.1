@@ -1,5 +1,7 @@
 package com.team7;
 
+import com.team7.connect.SqlConnection;
+
 import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -122,7 +124,8 @@ public class Main {
     private static void toDb()
     {
         try {
-            com.team7.connect.SqlConnection.connect();
+            SqlConnection sql=new SqlConnection();
+            sql.connect();
         } catch (SQLException e) {
             e.printStackTrace();
         }
