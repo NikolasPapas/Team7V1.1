@@ -1,8 +1,11 @@
 package com.team7;
 
+import com.team7.Controllers.VehicleController;
 import com.team7.connect.SqlConnection;
-
+import com.team7.Models.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -60,6 +63,21 @@ public class Main {
        System.out.println(choice);
        verifyPlate(choice);
        export();
+
+        List<Vehicle> veh = new ArrayList<>();
+        VehicleController vehcontrol = new VehicleController();
+        veh = vehcontrol.getVehicleList();
+        System.out.println(veh.get(0).getVehLicensePlate());
+
+    /**
+        afou exis perasi apo to sql stous controllers ta apotelesmata otan xanagirnas stin main
+        px: mesa sto function1
+        grafis
+
+        VehicleController vehControl = VehicleController();
+        ArrayList<Vehicle> veh = new ArrayList<>();
+        veh = vehControl.getVehicleList();
+        System.out.println(veh.get(0).getVehLicensePlate());*/
     }
 
     /**Function 2*/

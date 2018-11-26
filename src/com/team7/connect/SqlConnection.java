@@ -78,8 +78,12 @@ public class SqlConnection {
                 e.printStackTrace(); }
         }
         // TODO: SingletonDataSave.setSingletonOwner(ownerList);
+
+
         OwnerController ownContr = new OwnerController(ownerList);
-        ownContr.setOwnerList(ownerList);
+        //ownContr.setOwnerList(ownerList);
+
+
         for (int i=0; i<ownerList.size();i++){
             System.out.println( ownerList.get(i));
         }
@@ -120,7 +124,7 @@ public class SqlConnection {
         //TODO: SingletonDataSave.setOneVehicle(Vehicle)
         //SingletonDataSave.setSingletonVehicle(vehiList);
         VehicleController vehiContr = new VehicleController(vehiList);
-        vehiContr.setVehicleList(vehiList);
+        //vehiContr.setVehicleList(vehiList);
         for (int i=0; i<ownerList.size();i++){
             System.out.println( vehiList.get(i));
         }
@@ -155,7 +159,7 @@ public class SqlConnection {
         //TODO: SingletonDataSave.setOneInsurance(Insurance)
         //SingletonDataSave.setSingletonInsurance(insuList);
         InsuranceController insuContr = new InsuranceController(insuList);
-        insuContr.setInsuranceList(insuList);
+        //insuContr.setInsuranceList(insuList);
         for (int i=0; i<ownerList.size();i++){
             System.out.println( insuList.get(i));
         }
