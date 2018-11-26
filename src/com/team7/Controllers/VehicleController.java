@@ -42,7 +42,7 @@ public class VehicleController {
      * @return ArrayList<Vehicle>
      */
     public List<Vehicle> getVehicleList() {
-        return vehicleList;
+        return singletonClass.getSingletonVehicle();
     }
 
     /**
@@ -52,7 +52,7 @@ public class VehicleController {
      * @return Vehicle | null
      */
     public Vehicle getVehicleID(String vehID) {
-        for (Vehicle veh:vehicleList) {
+        for (Vehicle veh:singletonClass.getSingletonVehicle()) {
             if(vehID.equals(veh.getVehID())){
                 return veh;
             }
@@ -67,7 +67,7 @@ public class VehicleController {
      * @return Vehicle | null
      */
     public Vehicle getVehiclePlate(String plate) {
-        for (Vehicle veh:vehicleList) {
+        for (Vehicle veh:singletonClass.getSingletonVehicle()) {
             if(plate.equals(veh.getVehLicensePlate())){
                 return veh;
             }

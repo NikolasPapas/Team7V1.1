@@ -45,7 +45,7 @@ public class InsuranceController {
      * @return ArrayList<Insurance>
      */
     public List<Insurance> getInsuranceList() {
-        return insuranceList;
+        return singletonClass.getSingletonInsurance();
     }
 
     /**
@@ -64,7 +64,7 @@ public class InsuranceController {
      * @return Insurance | null
      */
     public Insurance getInsuranceID(String insID){
-        for (Insurance ins:insuranceList) {
+        for (Insurance ins:singletonClass.getSingletonInsurance()) {
             if(insID.equals(ins.getInsuranceID())){
                 return ins;
             }
@@ -80,7 +80,7 @@ public class InsuranceController {
     public List<Insurance> getInsuranceDateEnd(Date dateEnd){
         List<Insurance> insuranceEndList=new ArrayList<Insurance>();
 
-        for (Insurance ins:insuranceList) {
+        for (Insurance ins:singletonClass.getSingletonInsurance()) {
             if(ins.getInsuranceTo().before(dateEnd)){
                 insuranceEndList.add(ins);
             }
@@ -96,7 +96,7 @@ public class InsuranceController {
     public List<Insurance> getInsuranceDateStart(Date startDate){
         List<Insurance> insuranceEndList=new ArrayList<>();
 
-        for (Insurance ins:insuranceList) {
+        for (Insurance ins:singletonClass.getSingletonInsurance()) {
             if(ins.getInsuranceFrom().after(startDate)){
                 insuranceEndList.add(ins);
             }

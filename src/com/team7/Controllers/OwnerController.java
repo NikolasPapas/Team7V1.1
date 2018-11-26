@@ -43,7 +43,7 @@ public class OwnerController  {
      * @return ArrayList<Owner>
      */
     public List<Owner> getOwnerList() {
-        return ownerList;
+        return singletonClass.getSingletonOwner();
     }
 
     /**
