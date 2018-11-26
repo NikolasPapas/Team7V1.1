@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class CsvReader {
 
-    public static void loadRecord() {
+    public void loadRecord() {
 
         String csvFile = "data.csv";
         BufferedReader br = null;
@@ -63,12 +63,11 @@ public class CsvReader {
                 insu.setInsuranceTo(d2);
                 insuList.add(insu);
 
-
             }
             /**Send Lists to the controllers*/
             OwnerController ownContr = new OwnerController(ownerList);
-            VehicleController vehiContr = new VehicleController(vehiList);
             InsuranceController insuContr = new InsuranceController(insuList);
+            VehicleController vehiContr = new VehicleController(vehiList);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -84,6 +83,6 @@ public class CsvReader {
                     }
                 }
 
-            }
+    }
 
-        }
+}

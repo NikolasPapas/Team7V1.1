@@ -7,7 +7,7 @@ import java.util.List;
 public class CsvWriter {
 
 
-        public static void saveRecord(){
+        public void saveRecord(){
             List<List> exportList = new ArrayList<>();
             List<String> first = new ArrayList<>();
             List<String> second = new ArrayList<>();

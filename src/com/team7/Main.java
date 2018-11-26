@@ -1,10 +1,11 @@
 package com.team7;
 
 import com.team7.Controllers.VehicleController;
+import com.team7.Services.CsvReader;
+import com.team7.Services.CsvWriter;
 import com.team7.connect.SqlConnection;
 import com.team7.Models.*;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -64,27 +65,19 @@ public class Main {
        verifyPlate(choice);
        export();
 
-        List<Vehicle> veh = new ArrayList<>();
+        List<Vehicle> veh;
         VehicleController vehcontrol = new VehicleController();
         veh = vehcontrol.getVehicleList();
         System.out.println(veh.get(0).getVehLicensePlate());
 
-    /**
-        afou exis perasi apo to sql stous controllers ta apotelesmata otan xanagirnas stin main
-        px: mesa sto function1
-        grafis
-
-        VehicleController vehControl = VehicleController();
-        ArrayList<Vehicle> veh = new ArrayList<>();
-        veh = vehControl.getVehicleList();
-        System.out.println(veh.get(0).getVehLicensePlate());*/
     }
 
     /**Function 2*/
 
     private static void function2()
     {
-        com.team7.Services.CsvWriter.saveRecord();
+        CsvWriter writer = new CsvWriter();
+        writer.saveRecord();
         //export();
     }
     /**Function 3*/
@@ -137,7 +130,8 @@ public class Main {
 
     private static void toFile()
     {
-        com.team7.Services.CsvReader.loadRecord();
+        CsvReader reader = new CsvReader();
+        reader.loadRecord();
     }
     /** IO to Db*/
     private static void toDb()
@@ -149,6 +143,8 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+        /**Method for f1 Validation*/
     private static boolean verifyPlate(String plate) {
         if (plate.matches("[A-Z]{3}[-]{1}[0-9]{4}")) {
             System.out.println("This is a Valid license plate!");
