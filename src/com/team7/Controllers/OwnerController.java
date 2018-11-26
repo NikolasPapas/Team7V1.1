@@ -13,7 +13,7 @@ import java.util.List;
  * @author NikolaosPapazian
  * @version 1.0
  */
-public class OwnerController {
+public class OwnerController extends SingletonDataSave  {
 
     private List<Owner> ownerList;
     private SingletonDataSave singletonClass;
