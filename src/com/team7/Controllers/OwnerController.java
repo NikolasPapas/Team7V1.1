@@ -43,7 +43,7 @@ public class OwnerController {
      * @return Owner | null
      */
     public Owner getOwner(String ownerID){
-        for (Owner owner:ownerList) {
+        for (Owner owner:singletonClass.getSingletonOwner()) {
             if(ownerID.equals(owner.getOwnerID())){
                 return owner;
             }

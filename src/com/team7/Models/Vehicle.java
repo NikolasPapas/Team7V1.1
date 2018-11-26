@@ -1,7 +1,5 @@
 package com.team7.Models;
 
-
-
 /**
  * @author NikolaosPapazian
  * @version 1.0
