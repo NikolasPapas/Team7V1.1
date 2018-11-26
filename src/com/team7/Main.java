@@ -91,7 +91,7 @@ public class Main {
 
     private static void function3()
     {
-        com.team7.Services.CsvReader.loadRecord();
+
         //export();
     }
     /**Function 4*/
@@ -137,7 +137,7 @@ public class Main {
 
     private static void toFile()
     {
-
+        com.team7.Services.CsvReader.loadRecord();
     }
     /** IO to Db*/
     private static void toDb()

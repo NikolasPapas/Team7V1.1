@@ -113,7 +113,6 @@ public class SqlConnection {
                 vehi.setInsurID(rs2.getString(3));
                 vehi.setOwnerID(rs2.getString(2));
                 vehi.setVehID(rs2.getString(1));
-
                 vehiList.add(vehi);
                 //System.out.println(rs2.getString(1)+","+rs2.getString(2)+","+rs2.getString(3)+","+rs2.getString(4));
 
