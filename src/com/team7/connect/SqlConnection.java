@@ -5,22 +5,19 @@ import com.team7.Controllers.VehicleController;
 import com.team7.Models.Insurance;
 import com.team7.Models.Owner;
 import com.team7.Models.Vehicle;
-import com.team7.DataSave.SingletonDataSave;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  */
 public class SqlConnection {
-    private static SingletonDataSave singletonClass;
-    /**
+        /**
      *
      * @throws SQLException
      */
     public void connect()throws SQLException {
-        singletonClass = SingletonDataSave.getInstance();
+
         /**Declare querries*/
 
         String query1 = "select * from owner;";
@@ -157,9 +154,6 @@ public class SqlConnection {
         }
         //TODO: SingletonDataSave.setOneInsurance(Insurance)
         //SingletonDataSave.setSingletonInsurance(insuList);
-
-
-
         InsuranceController insuContr = new InsuranceController(insuList);
         insuContr.setInsuranceList(insuList);
         for (int i=0; i<ownerList.size();i++){
