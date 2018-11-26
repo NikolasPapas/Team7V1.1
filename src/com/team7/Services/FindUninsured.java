@@ -2,6 +2,7 @@ package com.team7.Services;
 
 
 import com.team7.Controllers.InsuranceController;
+import com.team7.Controllers.VehicleController;
 import com.team7.DataSave.SingletonDataSave;
 import com.team7.Models.*;
 

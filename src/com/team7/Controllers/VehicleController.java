@@ -21,6 +21,14 @@ public class VehicleController {
     /**
      * Constructor
      * @version 1.0
+     */
+    public VehicleController() {
+        singletonClass = SingletonDataSave.getInstance();
+    }
+
+    /**
+     * Constructor
+     * @version 1.0
      * @param vehicleList
      */
     public VehicleController(ArrayList<Vehicle> vehicleList) {

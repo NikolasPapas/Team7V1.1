@@ -18,6 +18,15 @@ public class OwnerController {
     private List<Owner> ownerList;
     private SingletonDataSave singletonClass;
 
+
+    /**
+     * Constructor
+     * @version 1.0
+     */
+    public OwnerController() {
+        singletonClass = SingletonDataSave.getInstance();
+    }
+
     /**
      * Constructor
      * @version 1.0

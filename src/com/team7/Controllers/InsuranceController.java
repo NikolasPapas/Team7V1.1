@@ -23,6 +23,14 @@ public class InsuranceController extends SingletonDataSave {
     /**
      * Constructor
      * @version 1.0
+     */
+    public InsuranceController() {
+        singletonClass = SingletonDataSave.getInstance();
+    }
+
+    /**
+     * Constructor
+     * @version 1.0
      * @param insuranceList
      */
     public InsuranceController(ArrayList<Insurance> insuranceList) {
