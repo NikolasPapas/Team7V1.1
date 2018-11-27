@@ -60,14 +60,8 @@ public class Vehicle implements Comparable<Vehicle>{
 
     @Override
     public int compareTo(Vehicle o) {
-        if(toString().equals(o.toString())){
-            return 1;
-        }
+        return vehLicensePlate.compareTo(o.vehLicensePlate);
+    
 
-        //TODO: the correct comparing method
-        // return -X if is down from this
-        // return 0 if is the same
-        //return +x if is up from this
-        return 0;
     }
 }
