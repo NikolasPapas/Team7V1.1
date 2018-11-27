@@ -35,9 +35,20 @@ public class InsuranceController {
      */
     public InsuranceController(ArrayList<Insurance> insuranceList) {
         singletonClass = SingletonDataSave.getInstance();
-        singletonClass.setSingletonInsurance(insuranceList);
-        this.insuranceList = insuranceList;
+        if(insuranceList !=null) {
+            singletonClass.setSingletonInsurance(insuranceList);
+            this.insuranceList = insuranceList;
+        }else {
+            ArrayList<Insurance> insuranceList2=new ArrayList<>();
+            Insurance ins = new Insurance();
+            ins.setInsuranceID("");
+            ins.setInsuranceFrom(null);
+            ins.setInsuranceTo(null);
+            insuranceList2.add(ins);
+            singletonClass.setSingletonInsurance(insuranceList2);
+            this.insuranceList = insuranceList2;
 
+        }
     }
 
     /**
@@ -54,8 +65,20 @@ public class InsuranceController {
      * @param insuranceList
      */
     public void setInsuranceList(ArrayList<Insurance> insuranceList) {
-        singletonClass.setSingletonInsurance(insuranceList);
-        this.insuranceList = insuranceList;
+        if(insuranceList !=null) {
+            singletonClass.setSingletonInsurance(insuranceList);
+            this.insuranceList = insuranceList;
+        }else {
+            ArrayList<Insurance> insuranceList2=new ArrayList<>();
+            Insurance ins = new Insurance();
+            ins.setInsuranceID("");
+            ins.setInsuranceFrom(null);
+            ins.setInsuranceTo(null);
+            insuranceList2.add(ins);
+            singletonClass.setSingletonInsurance(insuranceList2);
+            this.insuranceList = insuranceList2;
+
+        }
     }
 
     /**

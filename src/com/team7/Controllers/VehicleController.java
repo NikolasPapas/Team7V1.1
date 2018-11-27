@@ -33,8 +33,21 @@ public class VehicleController {
      */
     public VehicleController(ArrayList<Vehicle> vehicleList) {
         singletonClass = SingletonDataSave.getInstance();
-        singletonClass.setSingletonVehicle(vehicleList);
-        this.vehicleList = vehicleList;
+        if(vehicleList!=null) {
+            singletonClass.setSingletonVehicle(vehicleList);
+            this.vehicleList = vehicleList;
+        }else {
+            Vehicle veh = new Vehicle();
+            ArrayList<Vehicle> vehicleList2 =new ArrayList<>();
+            veh.setVehID("");
+            veh.setVehLicensePlate("");
+            veh.setInsurID("");
+            veh.setOwnerID("");
+            veh.setVehInsurance(null);
+            vehicleList2.add(veh);
+            singletonClass.setSingletonVehicle(vehicleList2);
+            this.vehicleList = vehicleList2;
+        }
     }
 
     /**
@@ -81,9 +94,22 @@ public class VehicleController {
      * @param vehicleList
      */
     public void setVehicleList(ArrayList<Vehicle> vehicleList) {
-        singletonClass.setSingletonVehicle(vehicleList);
-
-        this.vehicleList = vehicleList;
+        singletonClass = SingletonDataSave.getInstance();
+        if(vehicleList!=null) {
+            singletonClass.setSingletonVehicle(vehicleList);
+            this.vehicleList = vehicleList;
+        }else {
+            Vehicle veh = new Vehicle();
+            ArrayList<Vehicle> vehicleList2 =new ArrayList<>();
+            veh.setVehID("");
+            veh.setVehLicensePlate("");
+            veh.setInsurID("");
+            veh.setOwnerID("");
+            veh.setVehInsurance(null);
+            vehicleList2.add(veh);
+            singletonClass.setSingletonVehicle(vehicleList2);
+            this.vehicleList = vehicleList2;
+        }
     }
 
 }
