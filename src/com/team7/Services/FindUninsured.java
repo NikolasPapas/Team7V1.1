@@ -56,7 +56,7 @@ public class FindUninsured {
      */
     public boolean isUninsuredNow (Insurance insurance){
         Calendar calendar = Calendar.getInstance();
-        if( insurance.getInsuranceTo().before(calendar.getTime())){
+        if( insurance.getInsuranceTo().after(calendar.getTime())){
             return true;
         }
         return false;
@@ -91,7 +91,7 @@ public class FindUninsured {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, x);
         ArrayList AllUninsured = new ArrayList<InsuranceController>();
-        if( insurance.getInsuranceTo().before(cal.getTime())){
+        if( insurance.getInsuranceTo().after(cal.getTime())){
             return true;
         }
         return false;

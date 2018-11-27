@@ -58,41 +58,42 @@ public class Main {
 
     private static void function1()
     {
-       Scanner keyboard = new Scanner(System.in);
-       System.out.println("Give Vehicle's plate Number: ");
-       String choice = keyboard.nextLine();
-       System.out.println(choice);
-       verifyPlate(choice);
-       export();
-
+        boolean finished;
+        do {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Give Vehicle's plate Number: ");
+        String choice = keyboard.nextLine();
+        System.out.println(choice);
+        finished=verifyPlate(choice.toUpperCase());
+        }
+       while(!finished);
+        dataImport();
         List<Vehicle> veh;
         VehicleController vehcontrol = new VehicleController();
         veh = vehcontrol.getVehicleList();
         System.out.println(veh.get(0).getVehLicensePlate());
-
     }
-
     /**Function 2*/
 
     private static void function2()
     {
         CsvWriter writer = new CsvWriter();
         writer.saveRecord();
-        //export();
+        //dataImport();
     }
     /**Function 3*/
 
     private static void function3()
     {
 
-        //export();
+        //dataImport();
     }
     /**Function 4*/
 
     private static void function4()
     {
 
-        export();
+        dataImport();
     }
     /**Function Closemenu*/
 
@@ -102,12 +103,12 @@ public class Main {
     }
         /** IO connection*/
 
-    private static void export() {
+    private static void dataImport() {
         boolean finished=false;
         do {
             try {
                 Scanner keyboard = new Scanner(System.in);
-                System.out.println("---- Enter export type:");
+                System.out.println("---- Enter import type:");
                 System.out.println("1. File");
                 System.out.println("2. Data Base");
                 int choice = keyboard.nextInt();
@@ -147,11 +148,10 @@ public class Main {
         /**Method for f1 Validation*/
     private static boolean verifyPlate(String plate) {
         if (plate.matches("[A-Z]{3}[-]{1}[0-9]{4}")) {
-            System.out.println("This is a Valid license plate!");
             return true;
 
         } else {
-            System.out.println("Invalid input!");
+            System.out.println("Invalid input format!");
             return false;
         }
     }
