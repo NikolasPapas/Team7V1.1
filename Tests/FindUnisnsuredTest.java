@@ -62,7 +62,7 @@ class FindUninsuredTest {
         ins2.setInsuranceTo(sdf.parse("2018-12-30 00:00:00"));
 
 
-        Assertions.assertTrue(find.isOneUninsuredInDate(ins,10));
-        Assertions.assertFalse(find.isOneUninsuredInDate(ins2,30));
+        Assertions.assertTrue(find.isOneUninsuredInDate(ins2,10));
+        Assertions.assertFalse(find.isOneUninsuredInDate(ins,30));
     }
 }

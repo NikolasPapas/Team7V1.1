@@ -5,6 +5,7 @@ package com.team7.Controllers;
 import com.team7.DataSave.SingletonDataSave;
 import com.team7.Models.Owner;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,12 +31,23 @@ public class OwnerController  {
     /**
      * Constructor
      * @version 1.0
-     * @param owner
+     * @param ownerList
      */
-    public OwnerController(ArrayList<Owner> owner) {
+    public OwnerController(ArrayList<Owner> ownerList) {
         singletonClass = SingletonDataSave.getInstance();
-        singletonClass.setSingletonOwner(owner);
-        this.ownerList = owner;
+        if(ownerList != null) {
+            singletonClass.setSingletonOwner(ownerList);
+            this.ownerList = ownerList;
+        }else{
+            Owner owner2 = new Owner();
+            ArrayList<Owner> ownerList2 = new ArrayList<>();
+            owner2.setOwnerID("");
+            owner2.setOwnerName("");
+            ownerList2.add(owner2);
+            singletonClass.setSingletonOwner(ownerList2);
+            this.ownerList = ownerList2;
+
+        }
     }
 
     /**
@@ -66,8 +78,20 @@ public class OwnerController  {
      * @param ownerList
      */
     public void setOwnerList(ArrayList<Owner> ownerList) {
-        singletonClass.setSingletonOwner(ownerList);
-        this.ownerList = ownerList;
+        singletonClass = SingletonDataSave.getInstance();
+        if(ownerList != null) {
+            singletonClass.setSingletonOwner(ownerList);
+            this.ownerList = ownerList;
+        }else{
+            Owner owner2 = new Owner();
+            ArrayList<Owner> ownerList2 = new ArrayList<>();
+            owner2.setOwnerID("");
+            owner2.setOwnerName("");
+            ownerList2.add(owner2);
+            singletonClass.setSingletonOwner(ownerList2);
+            this.ownerList = ownerList2;
+
+        }
     }
 
     /**
