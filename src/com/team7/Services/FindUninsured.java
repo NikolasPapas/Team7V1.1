@@ -22,6 +22,7 @@ public class FindUninsured {
     private List<Insurance> UninsuredInsurances;
 
     /**
+     * Constructor
      * We need the constructor to initialise tha SingletonDataSave
      */
     public FindUninsured() {
@@ -38,7 +39,7 @@ public class FindUninsured {
      * take all the values from SingletonDataSave Class
      * @return AllUninsuredVehicleID
      */
-    public ArrayList FindAllUninsuredVehicleID (){
+    public ArrayList FindAllUninsuredInsuranceID (){
         ArrayList AllUninsured = new ArrayList();
         for (Insurance ins:singletonClass.getSingletonInsurance()) {
             if(isUninsuredNow(ins)){
