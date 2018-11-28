@@ -58,14 +58,11 @@ public class SqlConnection {
             while (rs1.next()) {
 
                 Owner ownr = new Owner();
-                ownr.setOwnerName(rs1.getString(2));
-                ownr.setOwnerID(rs1.getString(1));
+                ownr.setOwnerName(rs1.getString(2).toUpperCase());
+                ownr.setOwnerID(rs1.getString(1).toUpperCase());
                 ownerList.add(ownr);
             }
             OwnerController ownContr = new OwnerController(ownerList);
-            for (int i = 0; i < ownerList.size(); i++) {
-                System.out.println(ownerList.get(i));
-            }
 
             /**Vehicle resultSet
              * columns
@@ -85,9 +82,6 @@ public class SqlConnection {
                 vehiList.add(vehi);
             }
             VehicleController vehiContr = new VehicleController(vehiList);
-            for (int i = 0; i < vehiList.size(); i++) {
-                System.out.println(vehiList.get(i));
-            }
 
             /**Insurance resultSet
              * 1. Insu Id
@@ -105,9 +99,6 @@ public class SqlConnection {
 
             }
             InsuranceController insuContr = new InsuranceController(insuList);
-            for (int i = 0; i < insuList.size(); i++) {
-                System.out.println(insuList.get(i));
-            }
 
             /**
              * close connection with db
