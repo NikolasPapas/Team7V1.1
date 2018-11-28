@@ -8,6 +8,8 @@ import com.team7.Models.*;
 import java.util.List;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import com.team7.Services.VehicleSearch;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -150,5 +152,31 @@ public class Main {
             return false;
         }
     }
+    private static void find(String choice){
+
+        Boolean unisured=false;
+        VehicleSearch unis = new VehicleSearch();
+        ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleID();
+
+        for (Vehicle o: ola) {
+            if (o.getVehLicensePlate().equals(choice.toUpperCase())){
+                System.out.println(choice.toUpperCase()+ " is unisured");
+                unisured=true;
+            }
+        }
+        if (!unisured) {
+            VehicleController insur = new VehicleController();
+            List<Vehicle> all = insur.getVehicleList();
+            for (Vehicle o: all) {
+                if (o.getVehLicensePlate().equals(choice.toUpperCase())) {
+                    System.out.println(choice.toUpperCase() + " is isured");
+                    unisured = true;
+                }
+            }
+        }
+        if (!unisured) {
+            System.out.println(choice + " is not in Database");
+        }
+        }
 
 }
