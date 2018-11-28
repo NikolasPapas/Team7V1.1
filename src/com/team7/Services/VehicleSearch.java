@@ -87,7 +87,7 @@ public class VehicleSearch {
      * after that return the treeMap with Uninsured Vehicles,Owners
      * @return Map<Vehicle, Owner>
      */
-    private Map FindOwnerVehicleInsuranseID(){
+    public Map FindOwnerVehicleInsuranseID(){
         Map<Vehicle, Owner> map = new TreeMap<>();
         FindUninsured findUninsured = new FindUninsured();
         for (Vehicle veh:singletonClass.getSingletonVehicle()) {

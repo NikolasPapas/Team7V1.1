@@ -1,6 +1,8 @@
 import com.team7.Controllers.InsuranceController;
+import com.team7.Controllers.OwnerController;
 import com.team7.Controllers.VehicleController;
 import com.team7.Models.Insurance;
+import com.team7.Models.Owner;
 import com.team7.Models.Vehicle;
 import com.team7.Services.FindUninsured;
 import com.team7.Services.VehicleSearch;
@@ -12,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -50,35 +53,80 @@ class VehicleSearchTest {
     }
 
 
+
+
+    @Test
+    void FindOwnerVehicleInsuranseID() throws ParseException {
+        VehicleController veContr =new VehicleController(vehListCreate());
+        InsuranceController insContr = new InsuranceController(insuListCreate());
+        OwnerController onwContr = new OwnerController(ownersCreate());
+        VehicleSearch vehSearch =new VehicleSearch();
+
+        Map<Vehicle,Owner> uninsuredArrayList = vehSearch.FindOwnerVehicleInsuranseID();
+        Vehicle veh = veContr.getVehiclePlate("ABC-123");
+
+
+        Assertions.assertEquals("kostas",uninsuredArrayList.get(veh).getOwnerName());
+
+
+
+    }
+
+
+    ArrayList<Owner> ownersCreate() throws ParseException {
+
+        Owner own1 = new Owner();
+        own1.setOwnerName("kostas");
+        own1.setOwnerID("122nh2dh34sjbcne27dbs");
+        Owner own2 = new Owner();
+        own2.setOwnerName("stellios");
+        own2.setOwnerID("222nh2dh34sjbcne27dbs");
+        Owner own3 = new Owner();
+        own3.setOwnerName("giorgos");
+        own3.setOwnerID("322nh2dh34sjbcne27dbs");
+
+
+        ArrayList<Owner> OwnerList = new ArrayList<>();
+        OwnerList.add(own1);
+        OwnerList.add(own2);
+        OwnerList.add(own3);
+        return OwnerList;
+    }
+
+
+
+
+
     ArrayList<Insurance> insuListCreate() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd hh:mm:ss");
         String insurID;
         Date insurFrom;
         Date insurTo;
-        Insurance ins = new Insurance();
-        ins.setInsuranceID("1d34h56s78kn9u9823473");
-        ins.setInsuranceFrom(sdf.parse("2018-10-27 00:00:00"));
-        ins.setInsuranceTo(sdf.parse("2018-11-27 00:00:00"));
-
         Insurance ins1 = new Insurance();
-        ins1.setInsuranceID("2d34h56s78kn9u9823473");
-        ins1.setInsuranceFrom(sdf.parse("2018-10-30 00:00:00"));
-        ins1.setInsuranceTo(sdf.parse("2018-11-30 00:00:00"));
+        ins1.setInsuranceID("1d34h56s78kn9u9823473");
+        ins1.setInsuranceFrom(sdf.parse("2018-10-27 00:00:00"));
+        ins1.setInsuranceTo(sdf.parse("2018-11-27 00:00:00"));
 
         Insurance ins2 = new Insurance();
-        ins2.setInsuranceID("3d34h56s78kn9u9823473");
-        ins2.setInsuranceFrom(sdf.parse("2018-10-01 00:00:00"));
-        ins2.setInsuranceTo(sdf.parse("2018-12-01 00:00:00"));
+        ins2.setInsuranceID("2d34h56s78kn9u9823473");
+        ins2.setInsuranceFrom(sdf.parse("2018-10-28 00:00:00"));
+        ins2.setInsuranceTo(sdf.parse("2018-11-28 00:00:00"));
 
         Insurance ins3 = new Insurance();
-        ins3.setInsuranceID("4d34h56s78kn9u9823473");
-        ins3.setInsuranceFrom(sdf.parse("2018-10-02 00:00:00"));
-        ins3.setInsuranceTo(sdf.parse("2018-12-02 00:00:00"));
+        ins3.setInsuranceID("3d34h56s78kn9u9823473");
+        ins3.setInsuranceFrom(sdf.parse("2018-10-29 00:00:00"));
+        ins3.setInsuranceTo(sdf.parse("2018-11-29 00:00:00"));
+
+        Insurance ins4 = new Insurance();
+        ins4.setInsuranceID("4d34h56s78kn9u9823473");
+        ins4.setInsuranceFrom(sdf.parse("2018-10-02 00:00:00"));
+        ins4.setInsuranceTo(sdf.parse("2018-11-02 00:00:00"));
 
         ArrayList<Insurance> insList = new ArrayList<>();
-        insList.add(ins);
+        insList.add(ins1);
         insList.add(ins2);
         insList.add(ins3);
+        insList.add(ins4);
         return insList;
     }
 
@@ -106,7 +154,7 @@ class VehicleSearchTest {
         Vehicle veh4 = new Vehicle();
         veh4.setVehID("4433d34h56s78kefd7e83939u9823473");
         veh4.setVehLicensePlate("ABC-423");
-        veh4.setOwnerID("422nh2dh34sjbcne27dbs");
+        veh4.setOwnerID("322nh2dh34sjbcne27dbs");
         veh4.setInsurID("4d34h56s78kn9u9823473");
 
         ArrayList<Vehicle> vehList = new ArrayList<>();
