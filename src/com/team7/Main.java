@@ -71,13 +71,8 @@ public class Main {
             finished = verifyPlate(choice.toUpperCase());
         }
         while (!finished);
-        System.out.println(choice);
         dataImport();
         find(choice);
-        List<Vehicle> veh;
-        VehicleController vehcontrol = new VehicleController();
-        veh = vehcontrol.getVehicleList();
-        System.out.println(veh.get(0).getVehLicensePlate());
     }
 
     /**
@@ -85,9 +80,7 @@ public class Main {
      */
 
     private static void function2() {
-        //CsvWriter writer = new CsvWriter();
-        //writer.saveRecord();
-        //dataImport();
+
     }
 
     /**
@@ -97,17 +90,14 @@ public class Main {
     private static void function3() {
         ArrayList<String> str = new ArrayList<>();
         dataImport();
-        System.out.println("3anagurisa");
         VehicleSearch vehSearch =new VehicleSearch();
 
         Map<Vehicle,Owner> uninsuredArrayList = vehSearch.FindOwnerVehicleInsuranseID();
 
         for (Vehicle veh2:uninsuredArrayList.keySet()) {
             str.add(veh2.getVehLicensePlate());
-            System.out.println(veh2.getVehLicensePlate());
         }
         dataExport(str);
-        //System.out.println(str);
     }
 
     /**
@@ -197,7 +187,6 @@ public class Main {
             if (o.getVehLicensePlate().equals(choice.toUpperCase())) {
                 str.add(choice.toUpperCase() + " is uninsured");
                 dataExport(str);
-                //System.out.println(choice.toUpperCase()+ " is uninsured");
                 unisured = true;
             }
         }
@@ -208,7 +197,6 @@ public class Main {
                 if (o.getVehLicensePlate().equals(choice.toUpperCase())) {
                     str.add(choice.toUpperCase() + " is insured");
                     dataExport(str);
-                    //System.out.println(choice.toUpperCase() + " is insured");
                     unisured = true;
                 }
             }
@@ -216,9 +204,9 @@ public class Main {
         if (!unisured) {
             str.add(choice.toUpperCase() + " is not in Database");
             dataExport(str);
-            //System.out.println(choice + " is not in Database");
         }
     }
+        /**Select source to export*/
 
     private static void dataExport(ArrayList<String> list) {
         boolean finished=false;
@@ -242,7 +230,6 @@ public class Main {
             }while(!finished);
 
         }
-
 
 
 }

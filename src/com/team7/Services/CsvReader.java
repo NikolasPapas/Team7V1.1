@@ -61,18 +61,8 @@ public class CsvReader {
             }
             /**Creating Lists in the controllers*/
             OwnerController ownContr = new OwnerController(ownerList);
-            for (int i = 0; i < ownerList.size(); i++) {
-                System.out.println(ownerList.get(i));
-            }
             VehicleController vehiContr = new VehicleController(vehiList);
-            for (int i = 0; i < vehiList.size(); i++) {
-                System.out.println(vehiList.get(i));
-            }
             InsuranceController insuContr = new InsuranceController(insuList);
-            for (int i = 0; i < insuList.size(); i++) {
-                System.out.println(insuList.get(i));
-            }
-
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
