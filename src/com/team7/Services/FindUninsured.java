@@ -74,7 +74,7 @@ public class FindUninsured {
         ArrayList AllUninsured = new ArrayList<InsuranceController>();
 
         for (Insurance ins:singletonClass.getSingletonInsurance()) {
-            if( isOneUninsuredInDate(ins,x)){
+            if( !isOneUninsuredInDate(ins,x)){
                 AllUninsured.add(ins);
             }
         }
