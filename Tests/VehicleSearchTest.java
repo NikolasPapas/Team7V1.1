@@ -60,9 +60,17 @@ class VehicleSearchTest {
         VehicleController veContr =new VehicleController(vehListCreate());
         InsuranceController insContr = new InsuranceController(insuListCreate());
         OwnerController onwContr = new OwnerController(ownersCreate());
+
         VehicleSearch vehSearch =new VehicleSearch();
 
         Map<Vehicle,Owner> uninsuredArrayList = vehSearch.FindOwnerVehicleInsuranseID();
+        /*
+        for (Vehicle veh2:uninsuredArrayList.keySet()) {
+            System.out.println(veh2.getVehLicensePlate());
+        }
+        */
+
+
         Vehicle veh = veContr.getVehiclePlate("ABC-123");
 
 
