@@ -61,7 +61,7 @@ public class Vehicle implements Comparable<Vehicle>{
     @Override
     public int compareTo(Vehicle o) {
         return vehLicensePlate.compareTo(o.vehLicensePlate);
-    
+
 
     }
 }
