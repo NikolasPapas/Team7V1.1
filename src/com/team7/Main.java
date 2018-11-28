@@ -8,6 +8,8 @@ import com.team7.Models.*;
 import java.util.List;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import com.team7.Services.VehicleSearch;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -56,17 +58,18 @@ public class Main {
     /**Function 1*/
 
     private static void function1()
-    {
+    {   String choice;
         boolean finished;
         do {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Give Vehicle's plate Number: ");
-        String choice = keyboard.nextLine();
-        System.out.println(choice);
+        choice = keyboard.nextLine();
         finished=verifyPlate(choice.toUpperCase());
         }
        while(!finished);
+        System.out.println(choice);
         dataImport();
+        find(choice);
         List<Vehicle> veh;
         VehicleController vehcontrol = new VehicleController();
         veh = vehcontrol.getVehicleList();
@@ -148,6 +151,33 @@ public class Main {
         } else {
             System.out.println("Invalid input format!");
             return false;
+        }
+    }
+
+    private static void find(String choice){
+
+        Boolean unisured=false;
+        VehicleSearch unis = new VehicleSearch();
+        ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleID();
+
+        for (Vehicle o: ola) {
+            if (o.getVehLicensePlate().equals(choice)){
+                System.out.println(choice+ " is unisured");
+                unisured=true;
+            }
+        }
+        if (!unisured) {
+            VehicleController insur = new VehicleController();
+            List<Vehicle> all = insur.getVehicleList();
+            for (Vehicle o: all) {
+                if (o.getVehLicensePlate().equals(choice)) {
+                    System.out.println(choice + " is isured");
+                    unisured = true;
+                }
+            }
+        }
+        if (!unisured) {
+            System.out.println(choice + " is not in Database");
         }
     }
 
