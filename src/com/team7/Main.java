@@ -10,7 +10,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import com.team7.Services.VehicleSearch;
 import java.util.ArrayList;
-
+import java.util.Map;
 public class Main {
 
     /**
@@ -95,8 +95,19 @@ public class Main {
      */
 
     private static void function3() {
+        ArrayList<String> str = new ArrayList<>();
+        dataImport();
+        System.out.println("3anagurisa");
+        VehicleSearch vehSearch =new VehicleSearch();
 
-        //dataImport();
+        Map<Vehicle,Owner> uninsuredArrayList = vehSearch.FindOwnerVehicleInsuranseID();
+
+        for (Vehicle veh2:uninsuredArrayList.keySet()) {
+            str.add(veh2.getVehLicensePlate());
+            System.out.println(veh2.getVehLicensePlate());
+        }
+        dataExport(str);
+        //System.out.println(str);
     }
 
     /**

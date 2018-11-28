@@ -58,8 +58,8 @@ public class SqlConnection {
             while (rs1.next()) {
 
                 Owner ownr = new Owner();
-                ownr.setOwnerName(rs1.getString(2));
-                ownr.setOwnerID(rs1.getString(1));
+                ownr.setOwnerName(rs1.getString(2).toUpperCase());
+                ownr.setOwnerID(rs1.getString(1).toUpperCase());
                 ownerList.add(ownr);
             }
             OwnerController ownContr = new OwnerController(ownerList);
