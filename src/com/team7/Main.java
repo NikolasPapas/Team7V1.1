@@ -13,7 +13,9 @@ import java.util.ArrayList;
 
 public class Main {
 
-        /** Main menu*/
+    /**
+     * Main menu
+     */
     public static void main(String[] args) {
         boolean finished = false;
 
@@ -55,18 +57,20 @@ public class Main {
 
     }
 
-    /**Function 1*/
+    /**
+     * Function 1
+     */
 
-    private static void function1()
-    {   String choice;
+    private static void function1() {
+        String choice;
         boolean finished;
         do {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Give Vehicle's plate Number: ");
-        choice = keyboard.nextLine();
-        finished=verifyPlate(choice.toUpperCase());
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("Give Vehicle's plate Number: ");
+            choice = keyboard.nextLine();
+            finished = verifyPlate(choice.toUpperCase());
         }
-       while(!finished);
+        while (!finished);
         System.out.println(choice);
         dataImport();
         find(choice);
@@ -75,44 +79,55 @@ public class Main {
         veh = vehcontrol.getVehicleList();
         System.out.println(veh.get(0).getVehLicensePlate());
     }
-    /**Function 2*/
 
-    private static void function2()
-    {
-        CsvWriter writer = new CsvWriter();
-        writer.saveRecord();
+    /**
+     * Function 2
+     */
+
+    private static void function2() {
+        //CsvWriter writer = new CsvWriter();
+        //writer.saveRecord();
         //dataImport();
     }
-    /**Function 3*/
 
-    private static void function3()
-    {
+    /**
+     * Function 3
+     */
+
+    private static void function3() {
 
         //dataImport();
     }
-    /**Function 4*/
 
-    private static void function4()
-    {
+    /**
+     * Function 4
+     */
+
+    private static void function4() {
 
         dataImport();
     }
-    /**Function Closemenu*/
 
-    private static boolean closemenu()
-    {
+    /**
+     * Function Closemenu
+     */
+
+    private static boolean closemenu() {
         return true;
     }
-        /** IO connection*/
+
+    /**
+     * IO connection
+     */
 
     private static void dataImport() {
-        boolean finished=false;
+        boolean finished = false;
         do {
             try {
                 Scanner keyboard = new Scanner(System.in);
-                System.out.println("---- Enter import type:");
-                System.out.println("1. File");
-                System.out.println("2. Data Base");
+                System.out.println("---- Enter import source:");
+                System.out.println("1. From File");
+                System.out.println("2. From Data Base");
                 int choice = keyboard.nextInt();
                 if (choice == 1) {
                     toFile();
@@ -126,24 +141,29 @@ public class Main {
             } catch (InputMismatchException e) {
                 System.out.println("Invalid Input, please select one of the given options.");
             }
-        } while(!finished);
+        } while (!finished);
     }
 
-    /** IO to File*/
+    /**
+     * IO to File
+     */
 
-    private static void toFile()
-    {
+    private static void toFile() {
         CsvReader reader = new CsvReader();
         reader.loadRecord();
     }
-    /** IO to Db*/
-    private static void toDb()
-    {
-            SqlConnection sql=new SqlConnection();
-            sql.connect();
+
+    /**
+     * IO to Db
+     */
+    private static void toDb() {
+        SqlConnection sql = new SqlConnection();
+        sql.connect();
     }
 
-        /**Method for f1 Validation*/
+    /**
+     * Method for f1 Validation
+     */
     private static boolean verifyPlate(String plate) {
         if (plate.matches("[A-Z]{3}[-]{1}[0-9]{4}")) {
             return true;
@@ -153,58 +173,65 @@ public class Main {
             return false;
         }
     }
-    private static void find(String choice){
 
-        Boolean unisured=false;
+
+    /** Method tha checks if a car is uninsured*/
+    private static void find(String choice) {
+        ArrayList<String> str = new ArrayList<>();
+        Boolean unisured = false;
         VehicleSearch unis = new VehicleSearch();
         ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleID();
 
-        for (Vehicle o: ola) {
-            if (o.getVehLicensePlate().equals(choice.toUpperCase())){
-                System.out.println(choice.toUpperCase()+ " is unisured");
-                unisured=true;
+        for (Vehicle o : ola) {
+            if (o.getVehLicensePlate().equals(choice.toUpperCase())) {
+                str.add(choice.toUpperCase() + " is uninsured");
+                dataExport(str);
+                //System.out.println(choice.toUpperCase()+ " is uninsured");
+                unisured = true;
             }
         }
         if (!unisured) {
             VehicleController insur = new VehicleController();
             List<Vehicle> all = insur.getVehicleList();
-            for (Vehicle o: all) {
+            for (Vehicle o : all) {
                 if (o.getVehLicensePlate().equals(choice.toUpperCase())) {
-                    System.out.println(choice.toUpperCase() + " is isured");
+                    str.add(choice.toUpperCase() + " is insured");
+                    dataExport(str);
+                    //System.out.println(choice.toUpperCase() + " is insured");
                     unisured = true;
                 }
             }
         }
         if (!unisured) {
-            System.out.println(choice + " is not in Database");
-        }
-        }
-
-    private static void find(String choice){
-
-        Boolean unisured=false;
-        VehicleSearch unis = new VehicleSearch();
-        ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleID();
-
-        for (Vehicle o: ola) {
-            if (o.getVehLicensePlate().equals(choice)){
-                System.out.println(choice+ " is unisured");
-                unisured=true;
-            }
-        }
-        if (!unisured) {
-            VehicleController insur = new VehicleController();
-            List<Vehicle> all = insur.getVehicleList();
-            for (Vehicle o: all) {
-                if (o.getVehLicensePlate().equals(choice)) {
-                    System.out.println(choice + " is isured");
-                    unisured = true;
-                }
-            }
-        }
-        if (!unisured) {
-            System.out.println(choice + " is not in Database");
+            str.add(choice.toUpperCase() + " is not in Database");
+            dataExport(str);
+            //System.out.println(choice + " is not in Database");
         }
     }
+
+    private static void dataExport(ArrayList<String> list) {
+        boolean finished=false;
+        int choice;
+        do {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("---- Select Export source:");
+            System.out.println("1. To File");
+            System.out.println("2. To Console");
+            choice = keyboard.nextInt();
+            if (choice == 1) {
+                CsvWriter writer = new CsvWriter();
+                writer.saveRecord(list);
+                finished = true;
+            } else if (choice == 2) {
+                System.out.println(list);
+                finished = true;
+            } else {
+                System.out.println("Invalid Input, choose again.");
+            }
+            }while(!finished);
+
+        }
+
+
 
 }

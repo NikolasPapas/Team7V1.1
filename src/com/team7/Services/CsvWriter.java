@@ -7,8 +7,8 @@ import java.util.List;
 public class CsvWriter {
 
 
-    public void saveRecord() {
-        List<List> exportList = new ArrayList<>();
+    public void saveRecord(ArrayList<String> list) {
+        /**List<List> exportList = new ArrayList<>();
         List<String> first = new ArrayList<>();
         List<String> second = new ArrayList<>();
 
@@ -28,13 +28,13 @@ public class CsvWriter {
         second.add(str6);
         second.add(str6);
         exportList.add(first);
-        exportList.add(second);
+        exportList.add(second);*/
 
 
         PrintWriter pw = null;
         try {
             pw = new PrintWriter(new BufferedWriter((new FileWriter("result.csv"))));
-            pw.println(exportList);
+            pw.println(list);
         } catch (IOException e) {
             e.printStackTrace();
         }
