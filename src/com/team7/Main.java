@@ -5,7 +5,6 @@ import com.team7.Services.CsvReader;
 import com.team7.Services.CsvWriter;
 import com.team7.connect.SqlConnection;
 import com.team7.Models.*;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -137,12 +136,8 @@ public class Main {
     /** IO to Db*/
     private static void toDb()
     {
-        try {
             SqlConnection sql=new SqlConnection();
             sql.connect();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
         /**Method for f1 Validation*/

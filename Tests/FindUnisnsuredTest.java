@@ -53,7 +53,7 @@ class FindUninsuredTest {
         Insurance ins = new Insurance();
         ins.setInsuranceID("d34h56s78kn9u9823473");
         ins.setInsuranceFrom(sdf.parse("2018-10-05 00:00:00"));
-        ins.setInsuranceTo(sdf.parse("2018-11-27 00:00:00"));
+        ins.setInsuranceTo(sdf.parse("2018-11-29 00:00:00"));
 
 
         Insurance ins2 = new Insurance();
@@ -63,6 +63,6 @@ class FindUninsuredTest {
 
 
         Assertions.assertTrue(find.isOneUninsuredInDate(ins2,10));
-        Assertions.assertFalse(find.isOneUninsuredInDate(ins,30));
+        Assertions.assertFalse(find.isOneUninsuredInDate(ins,10));
     }
 }
