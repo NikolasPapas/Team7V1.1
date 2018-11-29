@@ -244,7 +244,7 @@ public class Main {
         //Boolean unisured = false;
         ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleOnDateID(choice);
         for (Vehicle o :ola) {
-           str.add( o.getVehLicensePlate());
+           str.add( o.getVehLicensePlate() + "" + "Expires at: " + o.getVehInsurance().getInsuranceTo());
 
         }
         dataExport(str);
