@@ -21,7 +21,9 @@ public class CsvWriter {
         PrintWriter pw = null;
         try {
             pw = new PrintWriter(new BufferedWriter((new FileWriter("result.csv"))));
-            pw.println(list);
+            for (String str:list){
+            pw.println(str);
+            }
             System.out.println("Data saved to: result.csv");
         } catch (IOException e) {
             e.printStackTrace();

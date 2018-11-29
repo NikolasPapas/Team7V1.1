@@ -84,7 +84,12 @@ public class Main {
      */
 
     private static void function2() {
-
+        int choice;
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Check Which plates expire in X days");
+        choice = keyboard.nextInt();
+        dataImport();
+        printUninsuredVehicle(choice);
     }
 
     /**
@@ -246,14 +251,28 @@ public class Main {
                 writer.saveRecord(list);
                 finished = true;
             } else if (choice == 2) {
-                System.out.println(list);
-                finished = true;
+                for (String str:list) {
+                    System.out.println(str);
+
+                }finished = true;
             } else {
                 System.out.println("Invalid Input, choose again.");
             }
             }while(!finished);
 
         }
+
+    private static void printUninsuredVehicle(int choice){
+        ArrayList <String> str = new ArrayList<>();
+        VehicleSearch unis = new VehicleSearch();
+        //Boolean unisured = false;
+        ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleOnDateID(choice);
+        for (Vehicle o :ola) {
+            str.add("Vehicle's Plate: "+o.getVehLicensePlate()+" expires at "+o.getVehInsurance().getInsuranceTo());
+        }
+        dataExport(str);
+
+    }
 
 
 }
