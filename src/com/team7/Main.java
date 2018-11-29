@@ -5,6 +5,8 @@ import com.team7.Services.CsvReader;
 import com.team7.Services.CsvWriter;
 import com.team7.connect.*;
 import com.team7.Models.*;
+
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -81,6 +83,12 @@ public class Main {
 
     private static void function2() {
 
+       int choice;
+       Scanner keyboard = new Scanner(System.in);
+        System.out.println("Check Which plates expire in X days");
+        choice = keyboard.nextInt();
+        dataImport();
+        printUninsuredVehicle(choice);
     }
 
     /**
@@ -230,6 +238,17 @@ public class Main {
             }while(!finished);
 
         }
+    private static void printUninsuredVehicle(int choice){
+        ArrayList <String> str = new ArrayList<>();
+        VehicleSearch unis = new VehicleSearch();
+        //Boolean unisured = false;
+        ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleOnDateID(choice);
+        for (Vehicle o :ola) {
+           str.add( o.getVehLicensePlate());
 
+        }
+        dataExport(str);
+
+    }
 
 }
