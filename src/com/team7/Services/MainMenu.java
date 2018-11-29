@@ -187,6 +187,9 @@ public class MainMenu {
         }
     }
 
+        /**
+         * Implementation of function 2
+         * */
     private void printUninsuredVehicle(int choice){
         ArrayList <String> str = new ArrayList<>();
         VehicleSearch unis = new VehicleSearch();
