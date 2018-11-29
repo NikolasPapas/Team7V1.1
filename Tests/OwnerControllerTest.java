@@ -12,10 +12,10 @@ class OwnerControllerTest {
     void getOwnerList() {
 
         OwnerController ownerContr = new OwnerController(onerListCreate());
-        assertTrue(ownerContr.getOwner("822nh2dh34sjbcne27dbs").getOwnerName().equals("nikolas2"));
+        assertTrue(ownerContr.getOwner("422nh2dh34sjbcne27dbs").getOwnerName().equals("nikolas"));
         assertTrue(ownerContr.getOwner("222nh2dh34sjbcne27dbs").getOwnerName().equals("kostas"));
         assertFalse(ownerContr.getOwner("422nh2dh34sjbcne27dbs").getOwnerName().equals("kostas"));
-        assertFalse(ownerContr.getOwner("822nh2dh34sjbcne27dbs").getOwnerName().equals("kostas2"));
+        assertFalse(ownerContr.getOwner("222nh2dh34sjbcne27dbs").getOwnerName().equals("kostas2"));
 
     }
 
