@@ -9,15 +9,23 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
+ ** @author Vagelis Giannakosian
  *
  */
 public class SqlConnection {
-    /**
-     * @throws SQLException
-     */
+
+    /** Public method connect()
+     * Establishes connection with DataBase "project" on localhost
+     * and returns 3 resultsets, 1 for each table(owner,vehicle,insurance).
+     * Each tables is then transfered to singletonclass through
+     * its respective controller
+     * */
+
     public void connect() {
 
-        /**Arxikopoihsh statement,connection kai resultset
+        /**
+         * Initiate statement,connection and 1 resultset for each entity(owner,vehicle,insurance)
+         *
          * */
         Connection con = null;
         Statement st = null;
@@ -25,34 +33,35 @@ public class SqlConnection {
         ResultSet rs2 = null;
         ResultSet rs3 = null;
 
-        /**Declare querries
+        /**
+         * Declare querries
          * */
         String query1 = "select * from owner;";
         String query2 = "select * from vehicle;";
         String query3 = "select * from insurance;";
 
-        /**Dhmiourgia listwn gia kathe resultset
+        /**
+         * Initiate 1 Arraylist for each resultset
          * */
         ArrayList<Owner> ownerList = new ArrayList<>();
         ArrayList<Vehicle> vehiList = new ArrayList<>();
         ArrayList<Insurance> insuList = new ArrayList<>();
 
-        /**Establish connection with db
+        /**
+         * Establish connection with db
          * */
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/project?autoReconnect=true&useSSL=false", "root", "0123456789");
 
-            /**Dhmiourgia statement*/
+            /**Creation of Statement*/
 
             st = con.createStatement();
 
-            /**Owner resultSet
-             *
+            /** Iterate Owner resultSet and add its contents to ownerList
+             * columns:
              * 1 Owner Id
              * 2 Owner Name
-             *
-             *
              * */
             rs1 = st.executeQuery(query1);
             while (rs1.next()) {
@@ -64,8 +73,8 @@ public class SqlConnection {
             }
             OwnerController ownContr = new OwnerController(ownerList);
 
-            /**Vehicle resultSet
-             * columns
+            /**Iterate vehicle resultset and add its contents to vehiList
+             * columns:
              * 1:ID
              * 2:OwnerID
              * 3:InsurID
@@ -75,15 +84,16 @@ public class SqlConnection {
             rs2 = st.executeQuery(query2);
             while (rs2.next()) {
                 Vehicle vehi = new Vehicle();
-                vehi.setVehLicensePlate(rs2.getString(4));
-                vehi.setInsurID(rs2.getString(3));
-                vehi.setOwnerID(rs2.getString(2));
                 vehi.setVehID(rs2.getString(1));
+                vehi.setOwnerID(rs2.getString(2));
+                vehi.setInsurID(rs2.getString(3));
+                vehi.setVehLicensePlate(rs2.getString(4));
                 vehiList.add(vehi);
             }
             VehicleController vehiContr = new VehicleController(vehiList);
 
-            /**Insurance resultSet
+            /** Iterate Insurance resultSet and add its contents to insuranceList
+             * columns:
              * 1. Insu Id
              * 2. Insu day From
              * 3. Insu day To
@@ -96,7 +106,6 @@ public class SqlConnection {
                 insu.setInsuranceFrom(rs3.getDate(2));
                 insu.setInsuranceTo(rs3.getDate(3));
                 insuList.add(insu);
-
             }
             InsuranceController insuContr = new InsuranceController(insuList);
 
@@ -104,10 +113,7 @@ public class SqlConnection {
              * close connection with db
              *
              * */
-
-        } catch (ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e.getMessage());
         } finally {
             try {

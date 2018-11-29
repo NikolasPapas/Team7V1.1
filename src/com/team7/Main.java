@@ -14,7 +14,10 @@ import java.util.Map;
 public class Main {
 
     /**
-     * Main menu
+     * @author Vagelis Giannakosian
+     * method public static void main() - Main menu
+     * Creates the main menu and through a switch, it lets the user decide
+     * which of the available functions to choose
      */
     public static void main(String[] args) {
         boolean finished = false;
@@ -58,6 +61,7 @@ public class Main {
     }
 
     /**
+     *
      * Function 1
      */
 
@@ -84,7 +88,13 @@ public class Main {
     }
 
     /**
+     * @author Vagelis Giannakosian
      * Function 3
+     * Instantiates an Arraylist<string> called str
+     * Establishes connection with the Db through dataImport() and sends data to Singletonclass
+     * The method FindOwnerVehicleInsuranseID() returns the sorted map of the uninsured vehicles
+     * each of the map's Vehicle's License Plate is added to the Arraylist str
+     * the Arraylist str is sent to the dataExport() to be printed
      */
 
     private static void function3() {
@@ -109,16 +119,20 @@ public class Main {
         dataImport();
     }
 
-    /**
+    /**@author Vagelis Giannakosian
      * Function Closemenu
+     * returns true so as the programm to be ended
      */
 
     private static boolean closemenu() {
         return true;
     }
 
-    /**
-     * IO connection
+    /**@author Vagelis Giannakosian
+     *  Method dataImport()
+     *  It asks the user to choose between file and database as the source of tha data
+     *  if the user chooses '1', method toFile() is called
+     *  if the user chooses '2', method toDb() is called
      */
 
     private static void dataImport() {
@@ -145,8 +159,10 @@ public class Main {
         } while (!finished);
     }
 
-    /**
-     * IO to File
+    /**@author Vagelis Giannakosian
+     * Data import from File
+     * instantiates a new object of CsvReader
+     * and calls the loadRecord() method
      */
 
     private static void toFile() {
@@ -154,8 +170,10 @@ public class Main {
         reader.loadRecord();
     }
 
-    /**
-     * IO to Db
+    /**@author Vagelis Giannakosian
+     * Data import from Db
+     * instantiates a new object of Sqlconnection
+     * and calls the connect() method
      */
     private static void toDb() {
         SqlConnection sql = new SqlConnection();
@@ -179,7 +197,7 @@ public class Main {
     /** Method tha checks if a car is uninsured*/
     private static void find(String choice) {
         ArrayList<String> str = new ArrayList<>();
-        Boolean unisured = false;
+        boolean unisured = false;
         VehicleSearch unis = new VehicleSearch();
         ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleID();
 
@@ -206,7 +224,13 @@ public class Main {
             dataExport(str);
         }
     }
-        /**Select source to export*/
+        /**@author Vagelis Giannakosian
+         * method dataExport()
+         * Takes an argument of Arraylist<string> list
+         * lets the user choose where to print the requested data
+         * if he chooses '1', the saveRecord(list) is called
+         * if he chooses '2', the list of data is printed to the console
+         * */
 
     private static void dataExport(ArrayList<String> list) {
         boolean finished=false;
