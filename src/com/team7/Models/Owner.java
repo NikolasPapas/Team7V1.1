@@ -12,6 +12,7 @@ package com.team7.Models;
 public class Owner implements Comparable {
     private String ownerID;
     private String ownerName;
+    private float TicketValue ;
 
 
     public String getOwnerID() {
@@ -30,6 +31,14 @@ public class Owner implements Comparable {
         this.ownerName = ownerName;
     }
 
+
+    public float getTicketValue() {
+        return TicketValue;
+    }
+
+    public void setTicketValue(float ticketValue) {
+        TicketValue = ticketValue;
+    }
 
     @Override
     public String toString(){
