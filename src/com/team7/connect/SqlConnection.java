@@ -2,6 +2,7 @@ package com.team7.connect;
 import com.team7.Controllers.InsuranceController;
 import com.team7.Controllers.OwnerController;
 import com.team7.Controllers.VehicleController;
+import com.team7.Main;
 import com.team7.Models.Insurance;
 import com.team7.Models.Owner;
 import com.team7.Models.Vehicle;
@@ -24,16 +25,6 @@ public class SqlConnection {
     public void connect() {
 
         /**
-         * Initiate statement,connection and 1 resultset for each entity(owner,vehicle,insurance)
-         *
-         * */
-        Connection con = null;
-        Statement st = null;
-        ResultSet rs1 = null;
-        ResultSet rs2 = null;
-        ResultSet rs3 = null;
-
-        /**
          * Declare querries
          * */
         String query1 = "select * from owner;";
@@ -49,21 +40,24 @@ public class SqlConnection {
 
         /**
          * Establish connection with db
+         * using try with resources
          * */
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/project?autoReconnect=true&useSSL=false", "root", "0123456789");
+        try (Connection con= DriverManager.getConnection("jdbc:mysql://localhost/project?autoReconnect=true&useSSL=false", "root", "0123456789");
+             Statement st1=con.createStatement();
+             Statement st2=con.createStatement();
+             Statement st3=con.createStatement();
+             ResultSet rs1=st1.executeQuery(query1);
+             ResultSet rs2=st2.executeQuery(query2);
+             ResultSet rs3=st3.executeQuery(query3);
+        )
+        {
 
-            /**Creation of Statement*/
-
-            st = con.createStatement();
-
-            /** Iterate Owner resultSet and add its contents to ownerList
+            /** Iterate Owner resultSet, add its contents to ownerList
+             * and send the ownerList to Singleton through the OwnerController
              * columns:
              * 1 Owner Id
              * 2 Owner Name
              * */
-            rs1 = st.executeQuery(query1);
             while (rs1.next()) {
 
                 Owner ownr = new Owner();
@@ -73,7 +67,8 @@ public class SqlConnection {
             }
             OwnerController ownContr = new OwnerController(ownerList);
 
-            /**Iterate vehicle resultset and add its contents to vehiList
+            /**Iterate vehicle resultset, add its contents to vehiList
+             * and send the vehiList to Singleton through the VehicleController
              * columns:
              * 1:ID
              * 2:OwnerID
@@ -81,7 +76,6 @@ public class SqlConnection {
              * 4:VehiclePlate
              */
 
-            rs2 = st.executeQuery(query2);
             while (rs2.next()) {
                 Vehicle vehi = new Vehicle();
                 vehi.setVehID(rs2.getString(1));
@@ -93,13 +87,13 @@ public class SqlConnection {
             VehicleController vehiContr = new VehicleController(vehiList);
 
             /** Iterate Insurance resultSet and add its contents to insuranceList
+             * and send the insuranceList to Singleton through the InsuranceController
              * columns:
              * 1. Insu Id
              * 2. Insu day From
              * 3. Insu day To
              * */
 
-            rs3 = st.executeQuery(query3);
             while (rs3.next()) {
                 Insurance insu = new Insurance();
                 insu.setInsuranceID(rs3.getString(1));
@@ -110,26 +104,15 @@ public class SqlConnection {
             InsuranceController insuContr = new InsuranceController(insuList);
 
             /**
-             * close connection with db
-             *
+             * if there is an error with the Db
+             * send error message and create new Menu
+             * else close the Db
              * */
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (rs1!= null)
-                    rs1.close();
-                if (rs2 != null)
-                    rs2.close();
-                if (rs3 != null)
-                    rs3.close();
-                if (st != null)
-                    st.close();
-                if (con != null)
-                    con.close();
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+            Main menu = new Main();
+            menu.Menu();
+
         }
 
     }
