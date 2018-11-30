@@ -118,9 +118,32 @@ public class MainMenu {
 
     private void function4() {
 
+        ArrayList<String> str = new ArrayList<>();
         IoHandle imp = new IoHandle();
         imp.dataImport();
+        int timesOfName=0;
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("Give the owner and the ticket: ");
+            String choice = keyboard.nextLine();
+            float ticket=keyboard.nextFloat();
+
+            VehicleSearch unis = new VehicleSearch();
+            Map<Vehicle, Owner> map = unis.FindOwnerVehicleInsuranseID();
+            for (Owner value : map.values()) {
+                if (value.getOwnerName().equals(choice.toUpperCase())){
+                    value.setTicketValue(ticket);
+                    timesOfName++;
+                }
+            }
+            str.add(choice+" should pay " +(timesOfName*ticket));
+            IoHandle exp = new IoHandle();
+            exp.dataExport(str);
+        }catch (InputMismatchException e) {
+            System.out.println("Invalid Input, please give a float next time");
+        }
     }
+
 
     /**@author Vagelis Giannakosian
      * Function Closemenu
