@@ -1,5 +1,6 @@
 package com.team7.Services;
 import com.team7.Controllers.*;
+import com.team7.Main;
 import com.team7.Models.*;
 import java.text.*;
 import java.util.Date;
@@ -10,9 +11,12 @@ import java.util.ArrayList;
 public class CsvReader {
 
     public void loadRecord() {
-
+        /**
+         *
+         * use comma as separator for the split of the csv file
+         *
+         * */
         String csvFile = "data.csv";
-        BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
 
@@ -24,15 +28,14 @@ public class CsvReader {
         ArrayList<Vehicle> vehiList = new ArrayList<>();
         ArrayList<Insurance> insuList = new ArrayList<>();
 
-        /**
+        /**@author Vagelis Giannakosian
          * Initiate  connection with File
+         * try with resources
          * */
-        try {
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))){
 
-            br = new BufferedReader(new FileReader(csvFile));
+
             while ((line = br.readLine()) != null) {
-
-                // use comma as separator
                 String[] plateInfo = line.split(cvsSplitBy);
 
                 /**@author Vagelis Giannakosian
@@ -98,19 +101,14 @@ public class CsvReader {
             VehicleController vehiContr = new VehicleController(vehiList);
             InsuranceController insuContr = new InsuranceController(insuList);
 
-                /**
-                 * close the connection to file
+                /**@author Vagelis Giannakosian
+                 * if the connection throws exception, return exceptions's message
+                 * and create new Main Menu
                  **/
                 } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                    if (br != null) {
-                        try {
-                            br.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                System.out.println(e.getMessage());
+                Main menu = new Main();
+                menu.Menu();
                 }
 
     }

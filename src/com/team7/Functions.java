@@ -1,64 +1,20 @@
-package com.team7.Services;
+package com.team7;
 
 import com.team7.Controllers.VehicleController;
 import com.team7.Models.Owner;
 import com.team7.Models.Vehicle;
+import com.team7.Services.IoHandle;
+import com.team7.Services.VehicleSearch;
 import java.util.*;
 
-public class MainMenu {
-    /**
-     * @author Vagelis Giannakosian
-     * method  Main menu()
-     * Creates the main menu and through a switch it lets the user decide
-     * which of the available functions to choose
-     */
-    public void mainMenu(){
-       boolean finished = false;
-
-        while (!finished) {
-        try {
-            Scanner keyboard = new Scanner(System.in);
-            System.out.println("---- Select Functionality to perform:");
-            System.out.println("1. Vehicle Insurance status");
-            System.out.println("2. Forecoming Expiries");
-            System.out.println("3. Expiries by plate");
-            System.out.println("4. Fine calculation per owner");
-            System.out.println("5. Exit");
-            System.out.print("Choose:");
-            int choice = keyboard.nextInt();
-            switch (choice) {
-                case 1:
-                    function1();
-                    break;
-                case 2:
-                    function2();
-                    break;
-                case 3:
-                    function3();
-                    break;
-                case 4:
-                    function4();
-                    break;
-                case 5:
-                    finished = closemenu();
-                    break;
-                default:
-                    System.out.println("Please select one of the given options");
-            }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid Input, please select one of the given options.");
-        }
-
-    }
-
-}
+public class Functions {
 
     /**
      *
      * Function 1
      */
 
-    private void function1() {
+    public void function1() {
         String choice;
         boolean finished;
         do {
@@ -77,7 +33,7 @@ public class MainMenu {
      * Function 2
      */
 
-    private void function2() {
+    public void function2() {
         int choice;
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Check Which plates expire in X days");
@@ -97,7 +53,7 @@ public class MainMenu {
      * the Arraylist str is sent to the dataExport() to be printed
      */
 
-    private void function3() {
+    public void function3() {
         ArrayList<String> str = new ArrayList<>();
         IoHandle imp = new IoHandle();
         imp.dataImport();
@@ -116,7 +72,7 @@ public class MainMenu {
      * Function 4
      */
 
-    private void function4() {
+    public void function4() {
 
         ArrayList<String> str = new ArrayList<>();
         IoHandle imp = new IoHandle();
@@ -144,13 +100,12 @@ public class MainMenu {
         }
     }
 
-
     /**@author Vagelis Giannakosian
      * Function Closemenu
      * returns true so as the programm to be ended
      */
 
-    private boolean closemenu() {
+    public boolean closemenu() {
         return true;
     }
 
@@ -210,9 +165,9 @@ public class MainMenu {
         }
     }
 
-        /**
-         * Implementation of function 2
-         * */
+    /**
+     * Implementation of function 2
+     * */
     private void printUninsuredVehicle(int choice){
         ArrayList <String> str = new ArrayList<>();
         VehicleSearch unis = new VehicleSearch();
@@ -224,4 +179,5 @@ public class MainMenu {
         exp.dataExport(str);
 
     }
+
 }
