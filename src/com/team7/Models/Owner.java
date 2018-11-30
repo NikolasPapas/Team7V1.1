@@ -12,7 +12,7 @@ package com.team7.Models;
 public class Owner implements Comparable {
     private String ownerID;
     private String ownerName;
-    private float TicketValue =Float.parseFloat("0.0f");
+    private double TicketValue = Double.parseDouble("0.0");
 
 
     public String getOwnerID() {
@@ -32,11 +32,11 @@ public class Owner implements Comparable {
     }
 
 
-    public float getTicketValue() {
+    public double getTicketValue() {
         return TicketValue;
     }
 
-    public void setTicketValue(float ticketValue) {
+    public void setTicketValue(double ticketValue) {
         TicketValue = ticketValue;
     }
 

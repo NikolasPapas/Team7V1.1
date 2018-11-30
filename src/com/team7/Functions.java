@@ -5,6 +5,7 @@ import com.team7.Models.Owner;
 import com.team7.Models.Vehicle;
 import com.team7.Services.IoHandle;
 import com.team7.Services.VehicleSearch;
+import com.team7.Controllers.OwnerController;
 import java.util.*;
 
 public class Functions {
@@ -78,25 +79,38 @@ public class Functions {
         IoHandle imp = new IoHandle();
         imp.dataImport();
         int timesOfName=0;
+        boolean findName= false;
         try{
             Scanner keyboard = new Scanner(System.in);
             System.out.println("Give the owner and the ticket: ");
             String choice = keyboard.nextLine();
-            float ticket=keyboard.nextFloat();
+            double ticket=keyboard.nextDouble();
 
             VehicleSearch unis = new VehicleSearch();
-            Map<Vehicle, Owner> map = unis.FindOwnerVehicleInsuranseID();
-            for (Owner value : map.values()) {
-                if (value.getOwnerName().equals(choice.toUpperCase())){
-                    value.setTicketValue(ticket);
-                    timesOfName++;
+            OwnerController sin= new OwnerController();
+
+            for (Owner onw : sin.getOwnerList()) {
+                if (onw.getOwnerName().equals(choice.toUpperCase())) {
+                    Map<Vehicle, Owner> map = unis.FindOwnerVehicleInsuranseID();
+                    for (Owner value : map.values()) {
+                        if (value.getOwnerName().equals(choice.toUpperCase())) {
+                            value.setTicketValue(ticket);
+                            timesOfName++;
+                            findName = true;
+                        }
+                    }
                 }
             }
-            str.add(choice+" should pay " +(timesOfName*ticket));
-            IoHandle exp = new IoHandle();
-            exp.dataExport(str);
+            if (findName) {
+                str.add(choice + " should pay " + (timesOfName * ticket));
+                IoHandle exp = new IoHandle();
+                exp.dataExport(str);
+            }else{
+                System.out.println("No such Name in Database");
+            }
+
         }catch (InputMismatchException e) {
-            System.out.println("Invalid Input, please give a float next time");
+            System.out.println("Invalid Input, please give the right input next time");
         }
     }
 
