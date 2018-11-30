@@ -6,6 +6,8 @@ import com.team7.Models.Vehicle;
 import com.team7.Services.IoHandle;
 import com.team7.Services.VehicleSearch;
 import com.team7.Controllers.OwnerController;
+
+import javax.print.attribute.Attribute;
 import java.util.*;
 
 public class Functions {
@@ -81,9 +83,14 @@ public class Functions {
         int timesOfName=0;
         boolean findName= false;
         try{
+            System.out.println("EXAMPLE: ");
+            System.out.println("Give the owner: \033[34mGREG\033[0m");
+            System.out.println("the ticket: \033[34m50,4\033[0m  \033[31mNOT 50.4\033[0m");
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("Give the owner and the ticket: ");
+            System.out.println("Give the owner: ");
             String choice = keyboard.nextLine();
+            System.out.println("the ticket: ");
+            //keyboard.useLocale(Locale.US); If want to trying like that 50.4
             double ticket=keyboard.nextDouble();
 
             VehicleSearch unis = new VehicleSearch();
