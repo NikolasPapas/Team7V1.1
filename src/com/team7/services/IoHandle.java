@@ -1,4 +1,4 @@
-package com.team7.Services;
+package com.team7.services;
 
 import com.team7.connect.SqlConnection;
 import java.util.ArrayList;
