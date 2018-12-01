@@ -13,7 +13,7 @@ public class IoHandle {
      *  if the user chooses '1', method toFile() is called
      *  if the user chooses '2', method toDb() is called
      */
-    public void dataImport() {
+    public void  dataImport() {
         boolean finished = false;
         do {
             try {

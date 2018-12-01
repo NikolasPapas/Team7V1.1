@@ -36,7 +36,7 @@ public class VehicleSearch {
      *
      * @return ArrayList
      */
-    public ArrayList FindAllUninsuredVehicleID () {
+    public ArrayList<Vehicle> FindAllUninsuredVehicleID () {
         ArrayList vehicleList = new ArrayList();
         FindUninsured findUninsured = new FindUninsured();
         for (Vehicle veh:singletonClass.getSingletonVehicle()) {

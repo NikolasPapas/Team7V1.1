@@ -39,7 +39,7 @@ public class FindUninsured {
      * take all the values from SingletonDataSave Class
      * @return AllUninsuredVehicleID
      */
-    public ArrayList FindAllUninsuredInsuranceID (){
+    public ArrayList<Vehicle> FindAllUninsuredInsuranceID (){
         ArrayList AllUninsured = new ArrayList();
         for (Insurance ins:singletonClass.getSingletonInsurance()) {
             if(isUninsuredNow(ins)){
@@ -57,10 +57,7 @@ public class FindUninsured {
      */
     public boolean isUninsuredNow (Insurance insurance){
         Calendar calendar = Calendar.getInstance();
-        if( insurance.getInsuranceTo().after(calendar.getTime())){
-            return true;
-        }
-        return false;
+        return insurance.getInsuranceTo().after(calendar.getTime());
     }
 
     /**
