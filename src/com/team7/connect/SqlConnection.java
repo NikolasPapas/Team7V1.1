@@ -78,10 +78,10 @@ public class SqlConnection {
 
             while (rs2.next()) {
                 Vehicle vehi = new Vehicle();
-                vehi.setVehID(rs2.getString(1));
-                vehi.setOwnerID(rs2.getString(2));
-                vehi.setInsurID(rs2.getString(3));
-                vehi.setVehLicensePlate(rs2.getString(4));
+                vehi.setVehID(rs2.getString(1).toUpperCase());
+                vehi.setOwnerID(rs2.getString(2).toUpperCase());
+                vehi.setInsurID(rs2.getString(3).toUpperCase());
+                vehi.setVehLicensePlate(rs2.getString(4).toUpperCase());
                 vehiList.add(vehi);
             }
             VehicleController vehiContr = new VehicleController(vehiList);
@@ -96,7 +96,7 @@ public class SqlConnection {
 
             while (rs3.next()) {
                 Insurance insu = new Insurance();
-                insu.setInsuranceID(rs3.getString(1));
+                insu.setInsuranceID(rs3.getString(1).toUpperCase());
                 insu.setInsuranceFrom(rs3.getDate(2));
                 insu.setInsuranceTo(rs3.getDate(3));
                 insuList.add(insu);
