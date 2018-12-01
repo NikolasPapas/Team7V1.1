@@ -1,9 +1,9 @@
 
-package com.team7.Controllers;
+package com.team7.controllers;
 
 
-import com.team7.DataSave.SingletonDataSave;
-import com.team7.Models.Insurance;
+import com.team7.dataSave.SingletonDataSave;
+import com.team7.models.Insurance;
 
 
 import java.util.ArrayList;

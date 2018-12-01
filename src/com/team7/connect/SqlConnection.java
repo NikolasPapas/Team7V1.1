@@ -1,11 +1,11 @@
 package com.team7.connect;
-import com.team7.Controllers.InsuranceController;
-import com.team7.Controllers.OwnerController;
-import com.team7.Controllers.VehicleController;
+import com.team7.controllers.InsuranceController;
+import com.team7.controllers.OwnerController;
+import com.team7.controllers.VehicleController;
 import com.team7.Main;
-import com.team7.Models.Insurance;
-import com.team7.Models.Owner;
-import com.team7.Models.Vehicle;
+import com.team7.models.Insurance;
+import com.team7.models.Owner;
+import com.team7.models.Vehicle;
 import java.sql.*;
 import java.util.ArrayList;
 

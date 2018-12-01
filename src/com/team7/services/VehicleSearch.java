@@ -1,10 +1,10 @@
-package com.team7.Services;
+package com.team7.services;
 
 
-import com.team7.DataSave.SingletonDataSave;
-import com.team7.Models.Insurance;
-import com.team7.Models.Owner;
-import com.team7.Models.Vehicle;
+import com.team7.dataSave.SingletonDataSave;
+import com.team7.models.Insurance;
+import com.team7.models.Owner;
+import com.team7.models.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;

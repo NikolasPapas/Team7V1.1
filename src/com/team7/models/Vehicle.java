@@ -1,4 +1,4 @@
-package com.team7.Models;
+package com.team7.models;
 
 /**
  * @author NikolaosPapazian

@@ -1,13 +1,8 @@
-import com.team7.Controllers.VehicleController;
-import com.team7.Models.Insurance;
-import com.team7.Models.Owner;
-import com.team7.Models.Vehicle;
+import com.team7.controllers.VehicleController;
+import com.team7.models.Vehicle;
 import org.junit.jupiter.api.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

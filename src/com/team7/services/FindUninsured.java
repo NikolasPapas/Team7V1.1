@@ -1,9 +1,9 @@
-package com.team7.Services;
+package com.team7.services;
 
 
-import com.team7.Controllers.InsuranceController;
-import com.team7.DataSave.SingletonDataSave;
-import com.team7.Models.*;
+import com.team7.controllers.InsuranceController;
+import com.team7.dataSave.SingletonDataSave;
+import com.team7.models.*;
 
 import java.util.ArrayList;
 import java.util.Calendar;

@@ -1,6 +1,5 @@
-import com.team7.Controllers.InsuranceController;
-import com.team7.Models.Insurance;
-import org.junit.jupiter.api.Assertions;
+import com.team7.controllers.InsuranceController;
+import com.team7.models.Insurance;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;

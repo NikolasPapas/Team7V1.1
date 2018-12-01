@@ -1,11 +1,11 @@
 package com.team7;
 
-import com.team7.Controllers.VehicleController;
-import com.team7.Models.Owner;
-import com.team7.Models.Vehicle;
-import com.team7.Services.IoHandle;
-import com.team7.Services.VehicleSearch;
-import com.team7.Controllers.OwnerController;
+import com.team7.controllers.VehicleController;
+import com.team7.models.Owner;
+import com.team7.models.Vehicle;
+import com.team7.services.IoHandle;
+import com.team7.services.VehicleSearch;
+import com.team7.controllers.OwnerController;
 
 import java.util.*;
 

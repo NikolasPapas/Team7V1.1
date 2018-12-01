@@ -1,5 +1,5 @@
-import com.team7.Controllers.OwnerController;
-import com.team7.Models.Owner;
+import com.team7.controllers.OwnerController;
+import com.team7.models.Owner;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

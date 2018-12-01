@@ -1,5 +1,5 @@
-import com.team7.Models.Insurance;
-import com.team7.Services.FindUninsured;
+import com.team7.models.Insurance;
+import com.team7.services.FindUninsured;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,11 +1,11 @@
-import com.team7.Controllers.InsuranceController;
-import com.team7.Controllers.OwnerController;
-import com.team7.Controllers.VehicleController;
-import com.team7.Models.Insurance;
-import com.team7.Models.Owner;
-import com.team7.Models.Vehicle;
-import com.team7.Services.FindUninsured;
-import com.team7.Services.VehicleSearch;
+import com.team7.controllers.InsuranceController;
+import com.team7.controllers.OwnerController;
+import com.team7.controllers.VehicleController;
+import com.team7.models.Insurance;
+import com.team7.models.Owner;
+import com.team7.models.Vehicle;
+import com.team7.services.FindUninsured;
+import com.team7.services.VehicleSearch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class VehicleSearchTest {
 

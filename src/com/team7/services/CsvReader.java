@@ -1,7 +1,7 @@
-package com.team7.Services;
-import com.team7.Controllers.*;
+package com.team7.services;
+import com.team7.controllers.*;
 import com.team7.Main;
-import com.team7.Models.*;
+import com.team7.models.*;
 import java.text.*;
 import java.util.Date;
 import java.io.*;

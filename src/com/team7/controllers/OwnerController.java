@@ -1,11 +1,10 @@
-package com.team7.Controllers;
+package com.team7.controllers;
 
 
 
-import com.team7.DataSave.SingletonDataSave;
-import com.team7.Models.Owner;
+import com.team7.dataSave.SingletonDataSave;
+import com.team7.models.Owner;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
 
