@@ -13,8 +13,10 @@ import java.util.*;
 public class Functions {
 
     /**
-     *
-     * Function 1
+     Function1
+     User inputs a license plate through the command line and the function checks
+     if the input has the correct license plate format ( ABC-1234 ). If the input is correct
+     the function returns the plate number from the database if it's found.
      */
 
     public void function1() {
@@ -33,7 +35,9 @@ public class Functions {
     }
 
     /**
-     * Function 2
+     Function 2
+     The user inputs a number of days "X" and the function returns the
+     license plates of the cars whose insurance will expire in "X" days.
      */
 
     public void function2() {
