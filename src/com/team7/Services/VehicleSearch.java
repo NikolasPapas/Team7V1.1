@@ -7,6 +7,7 @@ import com.team7.Models.Owner;
 import com.team7.Models.Vehicle;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -36,8 +37,8 @@ public class VehicleSearch {
      *
      * @return ArrayList
      */
-    public ArrayList<Vehicle> FindAllUninsuredVehicleID () {
-        ArrayList vehicleList = new ArrayList();
+    public List<Vehicle> FindAllUninsuredVehicleID () {
+        ArrayList<Vehicle> vehicleList = new ArrayList<>();
         FindUninsured findUninsured = new FindUninsured();
         for (Vehicle veh:singletonClass.getSingletonVehicle()) {
             for (Insurance ins:singletonClass.getSingletonInsurance()) {
@@ -61,8 +62,8 @@ public class VehicleSearch {
      * after that return the List with Uninsured Vehicles
      * @return ArrayList
      */
-    public ArrayList FindAllUninsuredVehicleOnDateID(int x){
-        ArrayList vehicleList = new ArrayList();
+    public List FindAllUninsuredVehicleOnDateID(int x){
+        ArrayList<Vehicle> vehicleList = new ArrayList<>();
         FindUninsured findUninsured = new FindUninsured();
         for (Vehicle veh:singletonClass.getSingletonVehicle()) {
             for (Insurance ins:singletonClass.getSingletonInsurance()) {

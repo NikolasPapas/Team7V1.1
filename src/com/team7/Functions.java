@@ -160,7 +160,7 @@ public class Functions {
         ArrayList<String> str = new ArrayList<>();
         boolean unisured = false;
         VehicleSearch unis = new VehicleSearch();
-        ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleID();
+        List<Vehicle> ola = unis.FindAllUninsuredVehicleID();
 
         for (Vehicle o : ola) {
             if (o.getVehLicensePlate().equals(choice.toUpperCase())) {
@@ -195,7 +195,7 @@ public class Functions {
     private void printUninsuredVehicle(int choice){
         ArrayList <String> str = new ArrayList<>();
         VehicleSearch unis = new VehicleSearch();
-        ArrayList<Vehicle> ola = unis.FindAllUninsuredVehicleOnDateID(choice);
+        List<Vehicle> ola = unis.FindAllUninsuredVehicleOnDateID(choice);
         for (Vehicle o :ola) {
             str.add("Vehicle's Plate: "+o.getVehLicensePlate()+" expires at "+o.getVehInsurance().getInsuranceTo());
         }

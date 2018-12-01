@@ -2,7 +2,6 @@ package com.team7.Services;
 
 
 import com.team7.Controllers.InsuranceController;
-import com.team7.Controllers.VehicleController;
 import com.team7.DataSave.SingletonDataSave;
 import com.team7.Models.*;
 
@@ -39,8 +38,8 @@ public class FindUninsured {
      * take all the values from SingletonDataSave Class
      * @return AllUninsuredVehicleID
      */
-    public ArrayList<Vehicle> FindAllUninsuredInsuranceID (){
-        ArrayList AllUninsured = new ArrayList();
+    public List<Insurance> FindAllUninsuredInsuranceID (){
+        ArrayList<Insurance> AllUninsured = new ArrayList<>();
         for (Insurance ins:singletonClass.getSingletonInsurance()) {
             if(isUninsuredNow(ins)){
                 AllUninsured.add(ins);
@@ -67,8 +66,8 @@ public class FindUninsured {
      * @param x
      * @return ArrayList
      */
-    public ArrayList isUninsuredInDate (int x){
-        ArrayList AllUninsured = new ArrayList<InsuranceController>();
+    public List<Insurance> isUninsuredInDate (int x){
+        ArrayList<Insurance> AllUninsured = new ArrayList<>();
 
         for (Insurance ins:singletonClass.getSingletonInsurance()) {
             if( !isOneUninsuredInDate(ins,x)){
