@@ -14,7 +14,6 @@ import java.util.List;
  * @version 1.0
  */
 public class VehicleController {
-    private List<Vehicle> vehicleList;
     private SingletonDataSave singletonClass;
 
 
@@ -35,7 +34,6 @@ public class VehicleController {
         singletonClass = SingletonDataSave.getInstance();
         if(vehicleList!=null) {
             singletonClass.setSingletonVehicle(vehicleList);
-            this.vehicleList = vehicleList;
         }else {
             Vehicle veh = new Vehicle();
             ArrayList<Vehicle> vehicleList2 =new ArrayList<>();
@@ -46,7 +44,6 @@ public class VehicleController {
             veh.setVehInsurance(null);
             vehicleList2.add(veh);
             singletonClass.setSingletonVehicle(vehicleList2);
-            this.vehicleList = vehicleList2;
         }
     }
 
@@ -97,7 +94,6 @@ public class VehicleController {
         singletonClass = SingletonDataSave.getInstance();
         if(vehicleList!=null) {
             singletonClass.setSingletonVehicle(vehicleList);
-            this.vehicleList = vehicleList;
         }else {
             Vehicle veh = new Vehicle();
             ArrayList<Vehicle> vehicleList2 =new ArrayList<>();
@@ -108,7 +104,6 @@ public class VehicleController {
             veh.setVehInsurance(null);
             vehicleList2.add(veh);
             singletonClass.setSingletonVehicle(vehicleList2);
-            this.vehicleList = vehicleList2;
         }
     }
 

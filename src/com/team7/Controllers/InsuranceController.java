@@ -16,7 +16,6 @@ import java.util.List;
  * @version 1.0
  */
 public class InsuranceController {
-    private List<Insurance> insuranceList;
     private SingletonDataSave singletonClass;
 
 
@@ -37,7 +36,6 @@ public class InsuranceController {
         singletonClass = SingletonDataSave.getInstance();
         if(insuranceList !=null) {
             singletonClass.setSingletonInsurance(insuranceList);
-            this.insuranceList = insuranceList;
         }else {
             ArrayList<Insurance> insuranceList2=new ArrayList<>();
             Insurance ins = new Insurance();
@@ -46,8 +44,6 @@ public class InsuranceController {
             ins.setInsuranceTo(null);
             insuranceList2.add(ins);
             singletonClass.setSingletonInsurance(insuranceList2);
-            this.insuranceList = insuranceList2;
-
         }
     }
 
@@ -67,7 +63,6 @@ public class InsuranceController {
     public void setInsuranceList(ArrayList<Insurance> insuranceList) {
         if(insuranceList !=null) {
             singletonClass.setSingletonInsurance(insuranceList);
-            this.insuranceList = insuranceList;
         }else {
             ArrayList<Insurance> insuranceList2=new ArrayList<>();
             Insurance ins = new Insurance();
@@ -76,8 +71,6 @@ public class InsuranceController {
             ins.setInsuranceTo(null);
             insuranceList2.add(ins);
             singletonClass.setSingletonInsurance(insuranceList2);
-            this.insuranceList = insuranceList2;
-
         }
     }
 

@@ -16,7 +16,6 @@ import java.util.List;
  */
 public class OwnerController  {
 
-    private List<Owner> ownerList;
     private SingletonDataSave singletonClass;
 
 
@@ -37,7 +36,6 @@ public class OwnerController  {
         singletonClass = SingletonDataSave.getInstance();
         if(ownerList != null) {
             singletonClass.setSingletonOwner(ownerList);
-            this.ownerList = ownerList;
         }else{
             Owner owner2 = new Owner();
             ArrayList<Owner> ownerList2 = new ArrayList<>();
@@ -45,8 +43,6 @@ public class OwnerController  {
             owner2.setOwnerName("");
             ownerList2.add(owner2);
             singletonClass.setSingletonOwner(ownerList2);
-            this.ownerList = ownerList2;
-
         }
     }
 
@@ -81,7 +77,6 @@ public class OwnerController  {
         singletonClass = SingletonDataSave.getInstance();
         if(ownerList != null) {
             singletonClass.setSingletonOwner(ownerList);
-            this.ownerList = ownerList;
         }else{
             Owner owner2 = new Owner();
             ArrayList<Owner> ownerList2 = new ArrayList<>();
@@ -89,8 +84,6 @@ public class OwnerController  {
             owner2.setOwnerName("");
             ownerList2.add(owner2);
             singletonClass.setSingletonOwner(ownerList2);
-            this.ownerList = ownerList2;
-
         }
     }
 
@@ -101,6 +94,5 @@ public class OwnerController  {
      */
     public void setOwner(Owner owner) {
         singletonClass.setSingletonOneOwner(owner);
-        this.ownerList.add(owner);
     }
 }

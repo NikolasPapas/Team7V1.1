@@ -38,7 +38,7 @@ public class VehicleSearch {
      * @return ArrayList
      */
     public List<Vehicle> FindAllUninsuredVehicleID () {
-        ArrayList<Vehicle> vehicleList = new ArrayList<>();
+        List<Vehicle> vehicleList = new ArrayList<>();
         FindUninsured findUninsured = new FindUninsured();
         for (Vehicle veh:singletonClass.getSingletonVehicle()) {
             for (Insurance ins:singletonClass.getSingletonInsurance()) {
@@ -48,7 +48,6 @@ public class VehicleSearch {
                         vehicleList.add(veh);
                     }
                 }
-
             }
         }
         return vehicleList;
@@ -63,7 +62,7 @@ public class VehicleSearch {
      * @return ArrayList
      */
     public List FindAllUninsuredVehicleOnDateID(int x){
-        ArrayList<Vehicle> vehicleList = new ArrayList<>();
+        List<Vehicle> vehicleList = new ArrayList<>();
         FindUninsured findUninsured = new FindUninsured();
         for (Vehicle veh:singletonClass.getSingletonVehicle()) {
             for (Insurance ins:singletonClass.getSingletonInsurance()) {
@@ -73,7 +72,6 @@ public class VehicleSearch {
                         vehicleList.add(veh);
                     }
                 }
-
             }
         }
         return vehicleList;
@@ -103,10 +101,8 @@ public class VehicleSearch {
                         }
                     }
                 }
-
             }
         }
         return map;
     }
-
 }

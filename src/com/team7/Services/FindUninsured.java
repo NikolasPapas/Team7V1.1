@@ -17,19 +17,12 @@ import java.util.List;
 public class FindUninsured {
     private SingletonDataSave singletonClass;
 
-    private List<Vehicle> UninsuredVehicles;
-    private List<Insurance> UninsuredInsurances;
-
     /**
      * Constructor
      * We need the constructor to initialise tha SingletonDataSave
      */
     public FindUninsured() {
         singletonClass = SingletonDataSave.getInstance();
-        /*
-        UninsuredVehicles =singletonClass.getSingletonVehicle();
-        UninsuredInsurances =singletonClass.getSingletonInsurance();
-        */
     }
 
     /**
@@ -39,7 +32,7 @@ public class FindUninsured {
      * @return AllUninsuredVehicleID
      */
     public List<Insurance> FindAllUninsuredInsuranceID (){
-        ArrayList<Insurance> AllUninsured = new ArrayList<>();
+        List<Insurance> AllUninsured = new ArrayList<>();
         for (Insurance ins:singletonClass.getSingletonInsurance()) {
             if(isUninsuredNow(ins)){
                 AllUninsured.add(ins);
@@ -67,7 +60,7 @@ public class FindUninsured {
      * @return ArrayList
      */
     public List<Insurance> isUninsuredInDate (int x){
-        ArrayList<Insurance> AllUninsured = new ArrayList<>();
+        List<Insurance> AllUninsured = new ArrayList<>();
 
         for (Insurance ins:singletonClass.getSingletonInsurance()) {
             if( !isOneUninsuredInDate(ins,x)){
@@ -87,7 +80,7 @@ public class FindUninsured {
     public Boolean isOneUninsuredInDate (Insurance insurance, int x){
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, x);
-        ArrayList AllUninsured = new ArrayList<InsuranceController>();
+        List AllUninsured = new ArrayList<InsuranceController>();
         if( insurance.getInsuranceTo().after(cal.getTime())){
             return true;
         }
